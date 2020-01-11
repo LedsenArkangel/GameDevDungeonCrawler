@@ -20,7 +20,7 @@ public class Playeractions : MonoBehaviour
     
     void Update()
     {
-
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f,0f);
         //movements
         if (Input.GetKey("w"))
         {

@@ -47,7 +47,7 @@ public class Playerstats : MonoBehaviour
     }
 
 
-    void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         currentHp -= damage;
         if (currentHp < 0) currentHp=0;//die;
