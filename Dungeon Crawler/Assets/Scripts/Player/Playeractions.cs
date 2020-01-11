@@ -42,14 +42,15 @@ public class Playeractions : MonoBehaviour
         //attack
         if (Input.GetMouseButtonDown(0))
         {
-            stats.reduceMana(attackManaCost);   
-            GameObject shuriken = Instantiate(ninjaStar, gameObject.transform.position, Quaternion.identity);
+            if (stats.useMana(attackManaCost)) {
+                GameObject shuriken = Instantiate(ninjaStar, gameObject.transform.position, Quaternion.identity);
 
-            Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            positionMouse.z = transform.position.z;
-            Vector3 towardsMouseFromPlayer = positionMouse - transform.position;
+                Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                positionMouse.z = transform.position.z;
+                Vector3 towardsMouseFromPlayer = positionMouse - transform.position;
 
-            shuriken.GetComponent<ProjectileScript>().setDirection(new Vector2(towardsMouseFromPlayer.x, towardsMouseFromPlayer.y));
+                shuriken.GetComponent<ProjectileScript>().initializeProjectile(new Vector2(towardsMouseFromPlayer.x, towardsMouseFromPlayer.y), gameObject.GetComponent<Collider2D>());
+            }
         }
     }
 }

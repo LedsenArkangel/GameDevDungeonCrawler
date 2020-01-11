@@ -8,7 +8,7 @@ public class Playerstats : MonoBehaviour
     [Header("Main stats")]
     public float maxHp = 100f;
     public float maxMana = 100f;
-    public float manaRegenPerSecond = 5f;
+    public float manaRegenPerSecond = 10f;
 
     [Header("Life and mana bars")]
     public RectTransform lifebarBackground;
@@ -36,7 +36,7 @@ public class Playerstats : MonoBehaviour
     }
 
     //reduces mana, returns false if not possible
-    public bool reduceMana(float cost)
+    public bool useMana(float cost)
     {
         if (cost <= currentMana)
         {
@@ -44,6 +44,13 @@ public class Playerstats : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+
+    void TakeDamage(float damage)
+    {
+        currentHp -= damage;
+        if (currentHp < 0) currentHp=0;//die;
     }
 
 }
