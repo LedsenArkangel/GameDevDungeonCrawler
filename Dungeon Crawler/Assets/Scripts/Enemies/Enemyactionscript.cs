@@ -5,10 +5,13 @@ using Pathfinding;
 
 public class Enemyactionscript : MonoBehaviour
 {
+    [Header("Main stats")]
     public float attackRange = 1f;
     public float attackDamage = 10f;
     public float attacksPerSecond = 1f;
-    
+
+    [Header("Visuals")]
+    public GameObject attackEffect;
 
     private float attackCoolDown = 0f;
     private GameObject Player;
