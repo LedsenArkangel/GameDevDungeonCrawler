@@ -7,7 +7,7 @@ public class ProjectileScript : MonoBehaviour
     [Header("Main attributes")]
     public float speed = 4f;
     public float damage = 10f;
-    public bool bouncesOffWalls = false;
+    public int bounceAmount = 0;
     public ProjectileType type = ProjectileType.IMPACT;
 
     [Header("Explosive attributes")]
@@ -68,13 +68,18 @@ public class ProjectileScript : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        //hit wall or other collider
+        //hits a wall or other collider
         else
         {
-            if(!bouncesOffWalls)Destroy(gameObject);
+            bounceAmount--;
+            if (bounceAmount <= 0)
+            {
+                if (type == ProjectileType.EXPLOSIVE) Explode();
+                Destroy(gameObject);
+            }
         }
     }
-
+    
     void Explode()
     {
         Instantiate(explosionEffect, transform.position, Quaternion.identity);

@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5961602871067761795}
-  - component: {fileID: 673965603146971337}
   - component: {fileID: 1814087024368933829}
   - component: {fileID: 6230626548679601870}
+  - component: {fileID: 363875091152977651}
   m_Layer: 0
   m_Name: Fire potion
   m_TagString: Untagged
@@ -34,32 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &673965603146971337
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2163941253363409920}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: cd4d9903839123045be720b4a54d4256, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.64, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.6}
-  m_EdgeRadius: 0
 --- !u!50 &1814087024368933829
 Rigidbody2D:
   serializedVersion: 4
@@ -80,7 +54,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6230626548679601870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   damage: 5
-  bouncesOffWalls: 1
+  bounceAmount: 3
   type: 1
   explosionRadius: 2
   explosionDamage: 7
@@ -105,6 +79,22 @@ MonoBehaviour:
   rotating: 1
   rotateSpeed: 720
   destroyEffect: {fileID: 0}
+--- !u!58 &363875091152977651
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163941253363409920}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: cd4d9903839123045be720b4a54d4256, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.35
 --- !u!1 &7172806472480612846
 GameObject:
   m_ObjectHideFlags: 0
