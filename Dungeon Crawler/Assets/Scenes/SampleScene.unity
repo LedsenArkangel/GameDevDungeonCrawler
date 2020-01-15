@@ -2375,6 +2375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BasicRoomTemplates:
   - {fileID: 5189637943373778935, guid: feb8e022b07adb848b74c89f86ae4381, type: 3}
+  - {fileID: 5189637943373778935, guid: d694c14cca4cfc249b0b9f783b7d34c6, type: 3}
   pathFindingMesh: {fileID: 245203860}
   level: 0
 --- !u!4 &1993102837
