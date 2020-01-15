@@ -50,7 +50,6 @@ public class Playeractions : MonoBehaviour
             //playerVelocity = new Vector2(maxMovementSpeed, playerVelocity.y);
         }
 
-
         //attack left click
         if (Input.GetMouseButtonDown(0))
         {
@@ -78,6 +77,15 @@ public class Playeractions : MonoBehaviour
 
                 firePotionAttack.GetComponent<ProjectileScript>().initializeProjectile(new Vector2(towardsMouseFromPlayer.x, towardsMouseFromPlayer.y), gameObject.GetComponent<Collider2D>());
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //hit player
+        if (collision.gameObject.GetComponent<DoorScript>() != null)
+        {
+            collision.gameObject.GetComponent<DoorScript>().TryOpenDoor();
         }
     }
 }

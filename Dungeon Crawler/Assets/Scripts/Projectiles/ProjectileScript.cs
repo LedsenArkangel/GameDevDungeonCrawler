@@ -37,7 +37,6 @@ public class ProjectileScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("hit something");
         //hit player
         if (collision.gameObject.GetComponent<Playerstats>() != null)
         {
