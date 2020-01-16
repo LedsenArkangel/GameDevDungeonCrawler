@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Playeractions : MonoBehaviour
 {
@@ -10,15 +11,21 @@ public class Playeractions : MonoBehaviour
     public float attackManaCost = 10f;
     public float potionAttackManaCost = 10f;
 
-    [Header("Projectiles")]
-    public GameObject ninjaStar;
-    public GameObject firePotion;
+    [Header("Spells")]
+    public GameObject[] spells;
+
+    [Header("Spell display")]
+    public Text spellNameTextDisplay;
+    public Image spellIconDisplay;
+
 
     private Playerstats stats;
+    private int equippedSpell = 0;
 
     void Start()
     {
         stats = gameObject.GetComponent<Playerstats>();
+        UpdateSpellDisplay();
     }
     
     void Update()
@@ -51,33 +58,31 @@ public class Playeractions : MonoBehaviour
             //playerVelocity = new Vector2(maxMovementSpeed, playerVelocity.y);
         }
 
-        //attack left click
-        if (Input.GetMouseButtonDown(0))
+        //swap weapons
+        if (Input.GetKeyDown("e"))
         {
-            if (stats.useMana(attackManaCost)) {
-                GameObject shuriken = Instantiate(ninjaStar, gameObject.transform.position, Quaternion.identity);
-
-                Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                positionMouse.z = transform.position.z;
-                Vector3 towardsMouseFromPlayer = positionMouse - transform.position;
-
-                shuriken.GetComponent<ProjectileScript>().initializeProjectile(new Vector2(towardsMouseFromPlayer.x, towardsMouseFromPlayer.y), gameObject.GetComponent<Collider2D>());
-            }
+            if (equippedSpell < spells.Length -1) equippedSpell++;
+            else equippedSpell = 0;
+            UpdateSpellDisplay();
+        }
+        if (Input.GetKeyDown("q"))
+        {
+            if (equippedSpell > 0) equippedSpell--;
+            else equippedSpell = spells.Length - 1;
+            UpdateSpellDisplay();
         }
 
-        //attack right click
+        //left click uses equipped spell
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (spells[equippedSpell].GetComponent<SpellBase>() != null) spells[equippedSpell].GetComponent<SpellBase>().useSpell(gameObject);
+        }
+
+        //grapling hook
         if (Input.GetMouseButtonDown(1))
         {
-            if (stats.useMana(potionAttackManaCost))
-            {
-                GameObject firePotionAttack = Instantiate(firePotion, gameObject.transform.position, Quaternion.identity);
-
-                Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                positionMouse.z = transform.position.z;
-                Vector3 towardsMouseFromPlayer = positionMouse - transform.position;
-
-                firePotionAttack.GetComponent<ProjectileScript>().initializeProjectile(new Vector2(towardsMouseFromPlayer.x, towardsMouseFromPlayer.y), gameObject.GetComponent<Collider2D>());
-            }
+            //TODO: throw hook in direction, hook should pull player with force X and stun him if low level enemy
+            
         }
     }
 
@@ -87,6 +92,15 @@ public class Playeractions : MonoBehaviour
         if (collision.gameObject.GetComponent<DoorScript>() != null)
         {
             collision.gameObject.GetComponent<DoorScript>().TryOpenDoor();
+        }
+    }
+
+    void UpdateSpellDisplay()
+    {
+        if (spells[equippedSpell].GetComponent<SpellBase>() != null)
+        {
+            spellNameTextDisplay.text = spells[equippedSpell].GetComponent<SpellBase>().spellName;
+            spellIconDisplay.sprite = spells[equippedSpell].GetComponent<SpellBase>().spellIcon;
         }
     }
 }

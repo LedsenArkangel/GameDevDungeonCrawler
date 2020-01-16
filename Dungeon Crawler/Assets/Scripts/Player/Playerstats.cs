@@ -46,6 +46,11 @@ public class Playerstats : MonoBehaviour
         return false;
     }
 
+    public void heal(float healAmount)
+    {
+        if (currentHp + healAmount > maxHp) currentHp = maxHp;
+        else currentHp += healAmount;
+    }
 
     public void TakeDamage(float damage)
     {
