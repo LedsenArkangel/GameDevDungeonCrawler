@@ -13,12 +13,18 @@ public class Playeractions : MonoBehaviour
 
     [Header("Spells")]
     public GameObject[] spells;
-    public GameObject hook;
 
     [Header("Spell display")]
     public Text spellNameTextDisplay;
     public Image spellIconDisplay;
 
+
+    [Header("Magic boots attributes")]
+    public float bootForce;
+    public GameObject bootsBoostEffect;
+
+    [Header("Visual effects")]
+    public GameObject runEffect;
 
     private Playerstats stats;
     private int equippedSpell = 0;
@@ -37,8 +43,8 @@ public class Playeractions : MonoBehaviour
         if (Input.GetKey("w"))
         {
             //gameObject.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + movementSpeed * Time.deltaTime);
-            if(playerVelocity.y < maxMovementSpeed) GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, movementForce * Time.deltaTime));
             //playerVelocity = new Vector2(playerVelocity.x, maxMovementSpeed);
+            if (playerVelocity.y < maxMovementSpeed) GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, movementForce * Time.deltaTime));
         }
         if (Input.GetKey("a"))
         {
@@ -79,17 +85,15 @@ public class Playeractions : MonoBehaviour
             if (spells[equippedSpell].GetComponent<SpellBase>() != null) spells[equippedSpell].GetComponent<SpellBase>().useSpell(gameObject);
         }
 
-
+        //right click uses magic boots
         if (Input.GetMouseButtonDown(1))
         {
-            /*
             Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             positionMouse.z = transform.position.z;
             Vector3 towardsMouseFromPlayer = positionMouse - gameObject.transform.position;
 
-            GameObject hookObject = Instantiate(hook, transform.position, Quaternion.identity);
-            hook.GetComponent<HookScript>().initializeHook(new Vector2(towardsMouseFromPlayer.x, towardsMouseFromPlayer.y), gameObject);
-            */
+
+            
         }
     }
 
