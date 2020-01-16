@@ -8,6 +8,7 @@ public class Playeractions : MonoBehaviour
     public float movementForce = 1000f;
     public float maxMovementSpeed = 5f;
     public float attackManaCost = 10f;
+    public float potionAttackManaCost = 10f;
 
     [Header("Projectiles")]
     public GameObject ninjaStar;
@@ -67,7 +68,7 @@ public class Playeractions : MonoBehaviour
         //attack right click
         if (Input.GetMouseButtonDown(1))
         {
-            if (stats.useMana(attackManaCost))
+            if (stats.useMana(potionAttackManaCost))
             {
                 GameObject firePotionAttack = Instantiate(firePotion, gameObject.transform.position, Quaternion.identity);
 
