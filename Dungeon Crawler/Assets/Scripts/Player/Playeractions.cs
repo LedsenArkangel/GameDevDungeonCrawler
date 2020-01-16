@@ -13,6 +13,7 @@ public class Playeractions : MonoBehaviour
 
     [Header("Spells")]
     public GameObject[] spells;
+    public GameObject hook;
 
     [Header("Spell display")]
     public Text spellNameTextDisplay;
@@ -78,11 +79,17 @@ public class Playeractions : MonoBehaviour
             if (spells[equippedSpell].GetComponent<SpellBase>() != null) spells[equippedSpell].GetComponent<SpellBase>().useSpell(gameObject);
         }
 
-        //grapling hook
+
         if (Input.GetMouseButtonDown(1))
         {
-            //TODO: throw hook in direction, hook should pull player with force X and stun him if low level enemy
-            
+            /*
+            Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            positionMouse.z = transform.position.z;
+            Vector3 towardsMouseFromPlayer = positionMouse - gameObject.transform.position;
+
+            GameObject hookObject = Instantiate(hook, transform.position, Quaternion.identity);
+            hook.GetComponent<HookScript>().initializeHook(new Vector2(towardsMouseFromPlayer.x, towardsMouseFromPlayer.y), gameObject);
+            */
         }
     }
 
