@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class Playeractions : MonoBehaviour
 {
     [Header("Main stats")]
-    public float movementForce = 1000f;
-    public float maxMovementSpeed = 5f;
     public float attackManaCost = 10f;
     public float potionAttackManaCost = 10f;
 
@@ -20,11 +18,9 @@ public class Playeractions : MonoBehaviour
 
 
     [Header("Magic boots attributes")]
-    public float bootForce;
+    public float boostForce = 800f;
+    public float boostManaCost = 10f;
     public GameObject bootsBoostEffect;
-
-    [Header("Visual effects")]
-    public GameObject runEffect;
 
     private Playerstats stats;
     private int equippedSpell = 0;
@@ -37,34 +33,6 @@ public class Playeractions : MonoBehaviour
     
     void Update()
     {
-        Vector2 playerVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
-
-        //movements
-        if (Input.GetKey("w"))
-        {
-            //gameObject.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + movementSpeed * Time.deltaTime);
-            //playerVelocity = new Vector2(playerVelocity.x, maxMovementSpeed);
-            if (playerVelocity.y < maxMovementSpeed) GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, movementForce * Time.deltaTime));
-        }
-        if (Input.GetKey("a"))
-        {
-            //gameObject.transform.position = new Vector2(gameObject.transform.position.x - movementSpeed * Time.deltaTime, gameObject.transform.position.y);
-            if (playerVelocity.x > -maxMovementSpeed) GetComponent<Rigidbody2D>().AddForce(new Vector2(-movementForce * Time.deltaTime, 0f));
-            //playerVelocity = new Vector2(-maxMovementSpeed, playerVelocity.y);
-        }
-        if (Input.GetKey("s"))
-        {
-            //gameObject.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - movementSpeed * Time.deltaTime);
-            if (playerVelocity.y > -maxMovementSpeed) GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, -movementForce * Time.deltaTime));
-            //playerVelocity = new Vector2(playerVelocity.x, -maxMovementSpeed);
-        }
-        if (Input.GetKey("d"))
-        {
-            //gameObject.transform.position = new Vector2(gameObject.transform.position.x + movementSpeed * Time.deltaTime, gameObject.transform.position.y);
-            if (playerVelocity.x < maxMovementSpeed) GetComponent<Rigidbody2D>().AddForce(new Vector2(movementForce * Time.deltaTime, 0f));
-            //playerVelocity = new Vector2(maxMovementSpeed, playerVelocity.y);
-        }
-
         //swap weapons
         if (Input.GetKeyDown("e"))
         {
@@ -91,9 +59,9 @@ public class Playeractions : MonoBehaviour
             Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             positionMouse.z = transform.position.z;
             Vector3 towardsMouseFromPlayer = positionMouse - gameObject.transform.position;
-
-
-            
+            GameObject boostEffect = Instantiate(bootsBoostEffect, transform.position, Quaternion.identity);
+            Destroy(boostEffect, 0.5f);
+            if(stats.useMana(boostManaCost))gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(towardsMouseFromPlayer.x, towardsMouseFromPlayer.y).normalized * boostForce);
         }
     }
 

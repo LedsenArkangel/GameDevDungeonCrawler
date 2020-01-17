@@ -64,6 +64,6 @@ TagManager:
   - name: Player layer
     uniqueID: 3897921169
     locked: 0
-  - name: Effect Layer
+  - name: Top Layer
     uniqueID: 4129753513
     locked: 0
