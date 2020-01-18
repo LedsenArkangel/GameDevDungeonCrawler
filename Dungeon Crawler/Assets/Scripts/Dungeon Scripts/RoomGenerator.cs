@@ -14,37 +14,74 @@ public class RoomGenerator : MonoBehaviour
     {
         roomDifficulty = difficultyLevel;
         
-        int amountOfWalls = Random.Range(0,5);
         Vector2 roomCenter = transform.position;
-        float distanceToNorthWall = 7.5f;
-        float distanceToWestWall = 7.5f;
-        //TODO: generate objects
-
-        //generate walls
-        for(int j = 0; j<amountOfWalls; j++)
+        if (type == RoomType.BASIC)
         {
-            //split room into 3x3
-            //each row and column must have at least 1 wall-less block
-            int rngWallPlacementBlock = Random.Range(0, 9);
-            
+            //TODO: generate objects
 
-            /*
-            float rngX = roomCenter.x + Random.Range(-roomCorner.x, roomCorner.x);
-            float rngY = roomCenter.y + Random.Range(-roomCorner.y, roomCorner.y);
-            int rngRotation = Random.Range(0,8);
-            */
+            int amountOfWalls = Random.Range(0, 5);
+            float distanceToNorthWall = 7.5f;
+            float distanceToWestWall = 7.5f;
 
-            /*
-            switch (rng)
+            int roomRng = Random.Range(0, 3); //Random.Range(0, 8);
+
+            switch (roomRng)
             {
-                //walls on left (25%)
+                //wall in the middle
                 case 0:
+                    int rngRotation = Random.Range(0, 4);
+                    float rotation = 0;
+                    if (rngRotation == 1) rotation = 45;
+                    else if (rngRotation == 2)
+                    {
+                        int longWallRng = Random.Range(0, 4);
+                        rotation = 90;
+                        if(longWallRng == 2) Instantiate(wall, new Vector2(roomCenter.x + (distanceToWestWall + 2.25f) / 2f, roomCenter.y), Quaternion.Euler(new Vector3(0, 0, rotation)));
+                        if (longWallRng == 3) Instantiate(wall, new Vector2(roomCenter.x - (distanceToWestWall + 2.25f) / 2f, roomCenter.y), Quaternion.Euler(new Vector3(0, 0, rotation)));
+                    }
+                    else if (rngRotation == 3) rotation = 135;
+                    Instantiate(wall,roomCenter, Quaternion.Euler(new Vector3(0,0, rotation)));
                     break;
-                //walls on right (25%)
+                
+                //two walls in middle with = shape
                 case 1:
+                    int wallConnectRng = Random.Range(0, 3);
+                    Instantiate(wall, new Vector2(roomCenter.x , roomCenter.y + (distanceToNorthWall - 2f) / 2f), Quaternion.Euler(new Vector3(0, 0, 90)));
+                    Instantiate(wall, new Vector2(roomCenter.x, roomCenter.y - (distanceToNorthWall - 2f) / 2f), Quaternion.Euler(new Vector3(0, 0, 90)));
+                    if (wallConnectRng == 0)
+                    {
+                        Instantiate(wall, new Vector2(roomCenter.x + (distanceToWestWall + 2.25f) / 2f, roomCenter.y + (distanceToNorthWall - 2f) / 2f), Quaternion.Euler(new Vector3(0, 0, 90)));
+                        Instantiate(wall, new Vector2(roomCenter.x - (distanceToWestWall + 2.25f) / 2f, roomCenter.y - (distanceToNorthWall - 2f) / 2f), Quaternion.Euler(new Vector3(0, 0, 90)));
+                    }
+                    else if (wallConnectRng == 1)
+                    {
+                        Instantiate(wall, new Vector2(roomCenter.x + (distanceToWestWall + 2.25f) / 2f, roomCenter.y - (distanceToNorthWall - 2f) / 2f), Quaternion.Euler(new Vector3(0, 0, 90)));
+                        Instantiate(wall, new Vector2(roomCenter.x - (distanceToWestWall + 2.25f) / 2f, roomCenter.y + (distanceToNorthWall - 2f) / 2f), Quaternion.Euler(new Vector3(0, 0, 90)));
+                    }
                     break;
-                //walls on middle horizontally(25%)
+                //two walls near corners
                 case 2:
+                    int wallCornerRng = Random.Range(0, 3);
+                    if (wallCornerRng == 0)
+                    {
+                        Instantiate(wall, new Vector2(roomCenter.x + (distanceToWestWall + 2.25f) / 2f, roomCenter.y + (distanceToNorthWall - 2f) / 2f), Quaternion.Euler(new Vector3(0, 0, 90)));
+                        Instantiate(wall, new Vector2(roomCenter.x - (distanceToWestWall + 2.25f) / 2f, roomCenter.y - (distanceToNorthWall - 2f) / 2f), Quaternion.Euler(new Vector3(0, 0, 90)));
+                    }
+                    else if (wallCornerRng == 1)
+                    {
+                        Instantiate(wall, new Vector2(roomCenter.x + (distanceToWestWall + 2.25f) / 2f, roomCenter.y - (distanceToNorthWall - 2f) / 2f), Quaternion.Euler(new Vector3(0, 0, 90)));
+                        Instantiate(wall, new Vector2(roomCenter.x - (distanceToWestWall + 2.25f) / 2f, roomCenter.y + (distanceToNorthWall - 2f) / 2f), Quaternion.Euler(new Vector3(0, 0, 90)));
+                    }
+                    else if (wallCornerRng == 2)
+                    {
+                        Instantiate(wall, new Vector2(roomCenter.x + (distanceToWestWall - 2.5f) / 2f, roomCenter.y - (distanceToNorthWall + 2.2f) / 2f), Quaternion.Euler(new Vector3(0, 0, 0)));
+                        Instantiate(wall, new Vector2(roomCenter.x - (distanceToWestWall - 2.5f) / 2f, roomCenter.y + (distanceToNorthWall + 2.2f) / 2f), Quaternion.Euler(new Vector3(0, 0, 0)));
+                    }
+                    else if (wallCornerRng == 3)
+                    {
+                        Instantiate(wall, new Vector2(roomCenter.x + (distanceToWestWall - 2.5f) / 2f, roomCenter.y + (distanceToNorthWall + 2.2f) / 2f), Quaternion.Euler(new Vector3(0, 0, 0)));
+                        Instantiate(wall, new Vector2(roomCenter.x - (distanceToWestWall - 2.5f) / 2f, roomCenter.y - (distanceToNorthWall + 2.2f) / 2f), Quaternion.Euler(new Vector3(0, 0, 0)));
+                    }
                     break;
                 //walls on middle vertically(25%)
                 case 3:
@@ -52,19 +89,13 @@ public class RoomGenerator : MonoBehaviour
                 default:
                     break;
             }
-            */
-            
-            //check that wall positions can't trap anything (always path up from mid, left or right and give at least room of 1.5f for player, enter door and exit door)
-        }
 
-
-        //TODO: generate enemies
-
-        //generate zombies if basic room
-        int amountOfZombies = Random.Range(1, roomDifficulty * 2);
-        for (int i = 0; i<amountOfZombies; i++)
-        {
-            Instantiate(zombie, new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 1f, distanceToWestWall - 1f), roomCenter.y + Random.Range(-distanceToNorthWall + 1f, distanceToNorthWall - 1f)), Quaternion.identity);
+            //generate X zombies if basic room
+            int amountOfZombies = Random.Range(1, roomDifficulty * 2);
+            for (int i = 0; i < amountOfZombies; i++)
+            {
+                Instantiate(zombie, new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 1f, distanceToWestWall - 1f), roomCenter.y + Random.Range(-distanceToNorthWall + 1f, distanceToNorthWall - 1f)), Quaternion.identity);
+            }
         }
     }
 
