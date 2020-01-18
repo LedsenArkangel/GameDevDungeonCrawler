@@ -2296,7 +2296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14f08d5269b28b4b8cad112b36b56c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BasicRoomTemplate: {fileID: 0}
+  BasicRoomTemplate: {fileID: 3151088711458470022, guid: 4333982893dca374193ef7be3762d634,
+    type: 3}
   BossRoomTemplate: {fileID: 0}
   pathFindingMesh: {fileID: 245203860}
   level: 0

@@ -714,5 +714,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe6dd6cd165a5447a45da84a365dca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 0}
-  wall: {fileID: 0}
+  zombie: {fileID: 4935015670075312507, guid: e51d97f4fbb2699408387092e8ce6851, type: 3}
+  wall: {fileID: 9126502015539306847, guid: f09c5ec5656fb5240b7f385bf4ee9444, type: 3}
+  type: 0
