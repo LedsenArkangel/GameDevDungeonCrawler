@@ -9,7 +9,11 @@ public class SpellBase : MonoBehaviour
     public float manaCost;
     public Spell spell;
     public GameObject projectile;
-    public GameObject spellUseEffect;
+
+    [Header("Visual effects")]
+    public GameObject spellUseEffectPrimary;
+    public GameObject spellUseEffectSecondary;
+    public GameObject spellUseEffectSTetriary;
 
     public void useSpell(GameObject player)
     {
@@ -30,13 +34,16 @@ public class SpellBase : MonoBehaviour
                     break;
                 case Spell.HEAL:
                     player.GetComponent<Playerstats>().heal(10);
+                    if (spellUseEffectPrimary != null) Instantiate(spellUseEffectPrimary, player.transform.position, Quaternion.identity);
+                    break;
+                case Spell.SMITE:
+                    if (GetComponent<Smite>() != null) GetComponent<Smite>().useSmite(player, Camera.main.ScreenToWorldPoint(Input.mousePosition), spellUseEffectPrimary, spellUseEffectSecondary);
                     break;
                 default:
                     Debug.Log("spell not defined");
                     break;
             }
-
-            if(spellUseEffect != null) Instantiate(spellUseEffect, player.transform.position, Quaternion.identity);
+            
         }
     }
 
@@ -50,7 +57,7 @@ public class SpellBase : MonoBehaviour
 
     public enum Spell
     {
-        UNDEFINED, NINJASTAR, FIREPOTION, HEAL
+        UNDEFINED, NINJASTAR, FIREPOTION, HEAL, SMITE
     }
 
 }

@@ -397,6 +397,8 @@ MonoBehaviour:
   maxHp: 25
   lifebarBackground: {fileID: 4935015669743790063}
   lifebarForeground: {fileID: 4935015668961771429}
+  deathEffect: {fileID: 135030593720171309, guid: ed787a098f4474a47bdbfc198c1e5fc0,
+    type: 3}
 --- !u!114 &5682977696241089787
 MonoBehaviour:
   m_ObjectHideFlags: 0

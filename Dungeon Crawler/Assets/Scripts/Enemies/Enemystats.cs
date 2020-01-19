@@ -11,6 +11,9 @@ public class Enemystats : MonoBehaviour
     public RectTransform lifebarBackground;
     public RectTransform lifebarForeground;
 
+    [Header("visuals")]
+    public GameObject deathEffect;
+
     private float currentHp = 100;
 
     // Start is called before the first frame update
@@ -28,6 +31,12 @@ public class Enemystats : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHp -= damage;
-        if (currentHp < 0) Destroy(gameObject);
+        if (currentHp < 0) die();
+    }
+    
+    public void die()
+    {
+        Instantiate(deathEffect,transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

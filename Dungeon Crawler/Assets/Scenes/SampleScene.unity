@@ -1061,6 +1061,7 @@ MonoBehaviour:
   - {fileID: 1123978299449160652, guid: 7da5cbdc848951a47904f38839adc29f, type: 3}
   - {fileID: 1123978299449160652, guid: 59114b18d50ebf44486e55e3b3dcc92a, type: 3}
   - {fileID: 1123978299449160652, guid: 5f01f0356ca65894383188bdc65f93b9, type: 3}
+  - {fileID: 1123978299449160652, guid: a45d7b31be2035c4ba0ad97cb384c137, type: 3}
   spellNameTextDisplay: {fileID: 247048143}
   spellIconDisplay: {fileID: 1954087881}
   boostForce: 1000
@@ -2691,6 +2692,8 @@ MonoBehaviour:
   maxHp: 25
   lifebarBackground: {fileID: 3793554214624408149}
   lifebarForeground: {fileID: 3793554216517954079}
+  deathEffect: {fileID: 135030593720171309, guid: ed787a098f4474a47bdbfc198c1e5fc0,
+    type: 3}
 --- !u!1 &3793554215400135873
 GameObject:
   m_ObjectHideFlags: 0
@@ -3430,6 +3433,8 @@ MonoBehaviour:
   maxHp: 25
   lifebarBackground: {fileID: 6580377128466857084}
   lifebarForeground: {fileID: 6580377128212915254}
+  deathEffect: {fileID: 135030593720171309, guid: ed787a098f4474a47bdbfc198c1e5fc0,
+    type: 3}
 --- !u!4 &6580377129259422442
 Transform:
   m_ObjectHideFlags: 0
