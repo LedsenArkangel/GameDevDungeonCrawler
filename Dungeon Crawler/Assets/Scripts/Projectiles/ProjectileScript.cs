@@ -20,11 +20,15 @@ public class ProjectileScript : MonoBehaviour
     public bool rotating = false;
     public float rotateSpeed = 10f;
     public GameObject destroyEffect;
+    public bool hasPointDirection = false;
+
+    private Vector2 movementDirection;
     
 
     public void initializeProjectile(Vector2 moveDirection, Collider2D user)
     {
         moveDirection.Normalize();
+        movementDirection = moveDirection;
         gameObject.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
         if (user != null)Physics2D.IgnoreCollision(GetComponent<Collider2D>(),user);
 
@@ -32,7 +36,16 @@ public class ProjectileScript : MonoBehaviour
 
     void Update()
     {
+        movementDirection = GetComponent<Rigidbody2D>().velocity.normalized;
         if (rotating && GetComponentInChildren<Transform>() != null) GetComponentInChildren<Transform>().Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
+        if (hasPointDirection && GetComponentInChildren<Transform>() != null)
+        {
+            if (movementDirection != Vector2.zero)
+            {
+                float angle = Mathf.Atan2(movementDirection.y, movementDirection.x) * Mathf.Rad2Deg;
+                GetComponentInChildren<Transform>().rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -85,12 +98,12 @@ public class ProjectileScript : MonoBehaviour
         //hits a wall or other collider
         else
         {
-            bounceAmount--;
             if (bounceAmount <= 0)
             {
                 if (type == ProjectileType.EXPLOSIVE) Explode();
                 Destroy(gameObject);
             }
+            bounceAmount--;
         }
     }
     
