@@ -29,6 +29,11 @@ public class Smite : MonoBehaviour
                 collider.gameObject.GetComponent<Enemystats>().TakeDamage(damage);
                 collider.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(collider.transform.position.x - position.x, collider.transform.position.y - position.y).normalized * smiteForce);
             }
+            if (collider.gameObject.GetComponent<ObjectScript>() != null)
+            {
+                collider.gameObject.GetComponent<ObjectScript>().TakeDamage(damage/2f);
+                if (collider.gameObject.GetComponent<Rigidbody2D>() != null) collider.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(collider.transform.position.x - position.x, collider.transform.position.y - position.y).normalized * smiteForce);
+            }
         }
     }
 }

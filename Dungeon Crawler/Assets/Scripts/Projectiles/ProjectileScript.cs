@@ -67,6 +67,21 @@ public class ProjectileScript : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        //hit object
+        else if (collision.gameObject.GetComponent<ObjectScript>() != null)
+        {
+            if (type == ProjectileType.IMPACT)
+            {
+                collision.gameObject.GetComponent<ObjectScript>().TakeDamage(damage);
+                Destroy(gameObject);
+            }
+            if (type == ProjectileType.EXPLOSIVE)
+            {
+                collision.gameObject.GetComponent<ObjectScript>().TakeDamage(damage);
+                Explode();
+                Destroy(gameObject);
+            }
+        }
         //hits a wall or other collider
         else
         {
@@ -96,6 +111,11 @@ public class ProjectileScript : MonoBehaviour
             {
                 collider.gameObject.GetComponent<Enemystats>().TakeDamage(explosionDamage);
                 collider.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(collider.transform.position.x - transform.position.x, collider.transform.position.y - transform.position.y).normalized * explosionForce);
+            }
+            if (collider.gameObject.GetComponent<ObjectScript>() != null)
+            {
+                collider.gameObject.GetComponent<ObjectScript>().TakeDamage(damage / 2f);
+                if (collider.gameObject.GetComponent<Rigidbody2D>() != null) collider.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(collider.transform.position.x - transform.position.x, collider.transform.position.y - transform.position.y).normalized * explosionForce);
             }
         }
     }
