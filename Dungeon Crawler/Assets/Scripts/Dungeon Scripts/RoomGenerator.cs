@@ -5,6 +5,8 @@ using UnityEngine;
 public class RoomGenerator : MonoBehaviour
 {
     public GameObject zombie;
+    public GameObject spider;
+    public GameObject boss;
     public GameObject wall;
     public RoomType type = RoomType.BASIC;
 
@@ -97,10 +99,14 @@ public class RoomGenerator : MonoBehaviour
                 Instantiate(zombie, new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 1f, distanceToWestWall - 1f), roomCenter.y + Random.Range(-distanceToNorthWall + 1f, distanceToNorthWall - 1f)), Quaternion.identity);
             }
         }
+        if (type == RoomType.BOSS)
+        {
+            GameObject bossObject = Instantiate(boss, roomCenter, Quaternion.identity);
+        }
     }
 
     public enum RoomType
     {
-        BASIC
+        BASIC, BOSS
     }
 }

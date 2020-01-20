@@ -2851,9 +2851,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BasicRoomTemplate: {fileID: 3151088711458470022, guid: 4333982893dca374193ef7be3762d634,
     type: 3}
-  BossRoomTemplate: {fileID: 0}
+  BossRoomTemplate: {fileID: 3151088711458470022, guid: 07aa3ded0157e0d4d89cd295c6b008b9,
+    type: 3}
   pathFindingMesh: {fileID: 245203860}
   level: 0
+  bossRoom: 5
 --- !u!4 &1993102837
 Transform:
   m_ObjectHideFlags: 0

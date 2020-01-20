@@ -16,21 +16,21 @@ public class Enemyactionscript : MonoBehaviour
     public GameObject attackEffect;
 
     private float attackCoolDown = 0f;
-    private GameObject Player;
+    private GameObject player;
 
     void Start()
     {
-        Player = GameObject.FindGameObjectsWithTag("Player")[0];
-        GetComponent<AIDestinationSetter>().target = Player.transform;
+        player = GameObject.FindGameObjectsWithTag("Player")[0];
+        if(GetComponent<AIDestinationSetter>() != null) GetComponent<AIDestinationSetter>().target = player.transform;
     }
     
     void Update()
     {
         if (attackCoolDown >= 0) attackCoolDown -= Time.deltaTime;
-        if((transform.position - Player.transform.position).magnitude < attackRange && attackCoolDown <= 0)
+        if((transform.position - player.transform.position).magnitude < attackRange && attackCoolDown <= 0)
         {
             attackCoolDown = 1f / attacksPerSecond;
-            Attack(Player);
+            Attack(player);
         }
     }
 
