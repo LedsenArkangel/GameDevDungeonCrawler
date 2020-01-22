@@ -3196,7 +3196,7 @@ MonoBehaviour:
   gameOver: {fileID: 1133710164}
   level: 0
   firstBossRoom: 10
-  finalLevel: 2
+  finalLevel: 10
 --- !u!4 &1993102837
 Transform:
   m_ObjectHideFlags: 0
