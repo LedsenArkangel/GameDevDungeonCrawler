@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 302167785679751627}
   - component: {fileID: 302167785679751624}
   - component: {fileID: 302167785679751625}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 302167785827447187}
   - component: {fileID: 302167785827447189}
   - component: {fileID: 302167785827447186}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Lifebar foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 302167786759516305}
   - component: {fileID: 302167786759516318}
   - component: {fileID: 302167786759516319}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spider
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 302167787029871328}
   - component: {fileID: 302167787029871331}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spider Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 302167787455712120}
   - component: {fileID: 302167787455712122}
   - component: {fileID: 302167787455712123}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Lifebar background
   m_TagString: Untagged
   m_Icon: {fileID: 0}

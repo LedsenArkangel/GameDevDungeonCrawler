@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4679773960359353265}
   - component: {fileID: 3866720859559573097}
   - component: {fileID: 4627139788109539003}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Necromancer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3951772368845441095}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4, y: 5, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 2}
   m_Children:
   - {fileID: 152908639250018014}
   - {fileID: 4387126023825309798}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 6542334502538426011}
   - component: {fileID: 8974254323435720980}
   - component: {fileID: 8249259759196050353}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Lifebar background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 2821137857478098209}
   - component: {fileID: 3608421120566334949}
   - component: {fileID: 136506190380402880}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Lifebar foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 152908639250018014}
   - component: {fileID: 4965570039921693327}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Zombie Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 550051088322249557}
   - component: {fileID: 4760984001501948013}
   - component: {fileID: 7496221202708386377}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

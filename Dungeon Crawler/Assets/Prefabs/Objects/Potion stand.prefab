@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7333877801799204233}
   - component: {fileID: 7333877801799204234}
   - component: {fileID: 3237420339588117460}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Potion stand
   m_TagString: Untagged
   m_Icon: {fileID: 0}

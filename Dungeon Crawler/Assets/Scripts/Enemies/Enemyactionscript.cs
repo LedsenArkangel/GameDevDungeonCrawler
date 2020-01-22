@@ -44,11 +44,20 @@ public class Enemyactionscript : MonoBehaviour
                 GameObject projectile = Instantiate(attackProjectile, transform.position, Quaternion.identity);
                 projectile.GetComponent<ProjectileScript>().initializeProjectile(target.transform.position - transform.position, gameObject.GetComponent<Collider2D>());
             }
+            if (attackType.Equals(AttackType.MISSILE))
+            {
+                GameObject projectile = Instantiate(attackProjectile, transform.position, Quaternion.identity);
+                projectile.GetComponent<ProjectileScript>().initializeProjectile(target.transform.position - transform.position, gameObject.GetComponent<Collider2D>(), player.transform);
+            }
+            if (attackType.Equals(AttackType.NECROMANCERBOSS))
+            {
+                //TODO: use random attack based on "cooldowns" and rng
+            }
         }
     }
 
     public enum AttackType
     {
-        MELEE, PROJECTILE
+        MELEE, PROJECTILE, MISSILE, NECROMANCERBOSS
     }
 }

@@ -79,6 +79,7 @@ MonoBehaviour:
   rotating: 1
   rotateSpeed: 720
   destroyEffect: {fileID: 0}
+  hasPointDirection: 0
 --- !u!58 &363875091152977651
 CircleCollider2D:
   m_ObjectHideFlags: 0

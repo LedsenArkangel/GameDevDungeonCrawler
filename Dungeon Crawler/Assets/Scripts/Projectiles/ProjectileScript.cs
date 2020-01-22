@@ -23,7 +23,7 @@ public class ProjectileScript : MonoBehaviour
     public bool hasPointDirection = false;
 
     private Vector2 movementDirection;
-    
+    private Transform target;
 
     public void initializeProjectile(Vector2 moveDirection, Collider2D user)
     {
@@ -31,19 +31,37 @@ public class ProjectileScript : MonoBehaviour
         movementDirection = moveDirection;
         gameObject.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
         if (user != null)Physics2D.IgnoreCollision(GetComponent<Collider2D>(),user);
-
     }
 
+    public void initializeProjectile(Vector2 moveDirection, Collider2D user, Transform target)
+    {
+        moveDirection.Normalize();
+        movementDirection = moveDirection;
+        gameObject.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
+        if (user != null) Physics2D.IgnoreCollision(GetComponent<Collider2D>(), user);
+        this.target = target;
+    }
+    
     void Update()
     {
-        movementDirection = GetComponent<Rigidbody2D>().velocity.normalized;
         if (rotating && GetComponentInChildren<Transform>() != null) GetComponentInChildren<Transform>().Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
         if (hasPointDirection && GetComponentInChildren<Transform>() != null)
         {
+
+            movementDirection = GetComponent<Rigidbody2D>().velocity.normalized;
             if (movementDirection != Vector2.zero)
             {
                 float angle = Mathf.Atan2(movementDirection.y, movementDirection.x) * Mathf.Rad2Deg;
                 GetComponentInChildren<Transform>().rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            }
+        }
+        if(type == ProjectileType.MISSILE)
+        {
+            if(target != null)
+            {
+                Vector2 directionOfTarget = target.position - transform.position;
+                directionOfTarget.Normalize();
+                gameObject.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(directionOfTarget.x * speed, directionOfTarget.y * speed);
             }
         }
     }
@@ -53,7 +71,7 @@ public class ProjectileScript : MonoBehaviour
         //hit player
         if (collision.gameObject.GetComponent<Playerstats>() != null)
         {
-            if (type == ProjectileType.IMPACT)
+            if (type == ProjectileType.IMPACT || type == ProjectileType.MISSILE)
             {
                 collision.gameObject.GetComponent<Playerstats>().TakeDamage(damage);
                 Destroy(gameObject);
@@ -68,7 +86,7 @@ public class ProjectileScript : MonoBehaviour
         //hit enemy
         else if (collision.gameObject.GetComponent<Enemystats>() != null)
         {
-            if(type == ProjectileType.IMPACT)
+            if(type == ProjectileType.IMPACT || type == ProjectileType.MISSILE)
             {
                 collision.gameObject.GetComponent<Enemystats>().TakeDamage(damage);
                 Destroy(gameObject);
@@ -83,7 +101,7 @@ public class ProjectileScript : MonoBehaviour
         //hit object
         else if (collision.gameObject.GetComponent<ObjectScript>() != null)
         {
-            if (type == ProjectileType.IMPACT)
+            if (type == ProjectileType.IMPACT || type == ProjectileType.MISSILE)
             {
                 collision.gameObject.GetComponent<ObjectScript>().TakeDamage(damage);
                 Destroy(gameObject);
@@ -135,6 +153,6 @@ public class ProjectileScript : MonoBehaviour
 
     public enum ProjectileType
     {
-        IMPACT, EXPLOSIVE
+        IMPACT, EXPLOSIVE, MISSILE
     }
 }

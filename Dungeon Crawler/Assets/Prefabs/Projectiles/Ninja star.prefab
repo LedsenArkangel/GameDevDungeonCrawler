@@ -95,11 +95,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   damage: 10
-  bouncesOffWalls: 0
+  bounceAmount: 0
   type: 0
+  explosionRadius: 2
+  explosionDamage: 15
+  explosionForce: 10
+  explosionEffect: {fileID: 0}
   rotating: 1
   rotateSpeed: 720
   destroyEffect: {fileID: 0}
+  hasPointDirection: 0
 --- !u!1 &5758812500609435429
 GameObject:
   m_ObjectHideFlags: 0

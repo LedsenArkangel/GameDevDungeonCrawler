@@ -117,7 +117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3151088709797425275}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -718,4 +718,5 @@ MonoBehaviour:
   spider: {fileID: 0}
   boss: {fileID: 3951772368845441095, guid: 93851a0dabac7e542a919040471da203, type: 3}
   wall: {fileID: 9126502015539306847, guid: f09c5ec5656fb5240b7f385bf4ee9444, type: 3}
+  objects: []
   type: 1

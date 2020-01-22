@@ -8,6 +8,9 @@ public class RoomGenerator : MonoBehaviour
     public GameObject spider;
     public GameObject boss;
     public GameObject wall;
+
+    public GameObject[] objects;
+
     public RoomType type = RoomType.BASIC;
 
     private int roomDifficulty;
@@ -19,8 +22,6 @@ public class RoomGenerator : MonoBehaviour
         Vector2 roomCenter = transform.position;
         if (type == RoomType.BASIC)
         {
-            //TODO: generate objects
-
             int amountOfWalls = Random.Range(0, 5);
             float distanceToNorthWall = 7.5f;
             float distanceToWestWall = 7.5f;
@@ -85,18 +86,22 @@ public class RoomGenerator : MonoBehaviour
                         Instantiate(wall, new Vector2(roomCenter.x - (distanceToWestWall - 2.5f) / 2f, roomCenter.y - (distanceToNorthWall + 2.2f) / 2f), Quaternion.Euler(new Vector3(0, 0, 0)));
                     }
                     break;
-                //walls on middle vertically(25%)
-                case 3:
-                    break;
                 default:
                     break;
             }
 
-            //generate X zombies if basic room
+            //generate X zombies
             int amountOfZombies = Random.Range(1, roomDifficulty * 2);
             for (int i = 0; i < amountOfZombies; i++)
             {
                 Instantiate(zombie, new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 1f, distanceToWestWall - 1f), roomCenter.y + Random.Range(-distanceToNorthWall + 1f, distanceToNorthWall - 1f)), Quaternion.identity);
+            }
+
+            //generate objects
+            int amountOfObjects = Random.Range(1, 7);
+            for (int k = 0; k < amountOfObjects; k++)
+            {
+                Instantiate(objects[Random.Range(0,objects.Length)], new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 1f, distanceToWestWall - 1f), roomCenter.y + Random.Range(-distanceToNorthWall + 1f, distanceToNorthWall - 1f)), Quaternion.identity);
             }
         }
         if (type == RoomType.BOSS)

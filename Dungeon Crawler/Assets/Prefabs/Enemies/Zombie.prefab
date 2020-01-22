@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4935015668780505789}
   - component: {fileID: 4935015668780505788}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Zombie Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4935015668961771429}
   - component: {fileID: 4935015668961771435}
   - component: {fileID: 4935015668961771428}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Lifebar foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 4935015669743790063}
   - component: {fileID: 4935015669743790061}
   - component: {fileID: 4935015669743790062}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Lifebar background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 4935015669893192458}
   - component: {fileID: 4935015669893192459}
   - component: {fileID: 4935015669893192452}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 794077080980922637}
   - component: {fileID: 3808659281833086285}
   - component: {fileID: 4050904410621733498}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Zombie
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -381,6 +381,8 @@ MonoBehaviour:
   attackRange: 1.5
   attackDamage: 10
   attacksPerSecond: 1
+  attackType: 0
+  attackProjectile: {fileID: 0}
   attackEffect: {fileID: 0}
 --- !u!114 &4935015670075312506
 MonoBehaviour:

@@ -16,10 +16,10 @@ TagManager:
   - 
   - 
   - Obstacle
-  - 
-  - 
-  - 
-  - 
+  - Object
+  - Enemy
+  - Player
+  - Intangible
   - 
   - 
   - 
@@ -48,6 +48,9 @@ TagManager:
     locked: 0
   - name: Floor layer
     uniqueID: 248551161
+    locked: 0
+  - name: Phantom layer
+    uniqueID: 4233272771
     locked: 0
   - name: walls layer
     uniqueID: 2324381265
