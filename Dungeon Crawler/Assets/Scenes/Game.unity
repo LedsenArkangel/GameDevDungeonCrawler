@@ -2031,6 +2031,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 100
+  explodes: 0
+  explosionRadius: 2
+  explosionDamage: 15
+  explosionForce: 10
+  explosionEffect: {fileID: 0}
+  aftermathObject: {fileID: 0}
 --- !u!212 &1444783696
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2857,7 +2863,7 @@ MonoBehaviour:
     type: 3}
   pathFindingMesh: {fileID: 245203860}
   level: 0
-  bossRoom: 5
+  firstBossRoom: 10
 --- !u!4 &1993102837
 Transform:
   m_ObjectHideFlags: 0
@@ -3092,6 +3098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72302b5f4f6b6a142b7c4571aff4eedf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalDoor: 0
 --- !u!4 &170289601408532734
 Transform:
   m_ObjectHideFlags: 0
@@ -3119,6 +3126,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 60
+  explodes: 0
+  explosionRadius: 2
+  explosionDamage: 15
+  explosionForce: 10
+  explosionEffect: {fileID: 0}
+  aftermathObject: {fileID: 0}
 --- !u!1 &899484109651836145
 GameObject:
   m_ObjectHideFlags: 0
@@ -3465,6 +3478,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 100
+  explodes: 0
+  explosionRadius: 2
+  explosionDamage: 15
+  explosionForce: 10
+  explosionEffect: {fileID: 0}
+  aftermathObject: {fileID: 0}
 --- !u!50 &3226505054415512562
 Rigidbody2D:
   serializedVersion: 4
@@ -4070,6 +4089,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 100
+  explodes: 0
+  explosionRadius: 2
+  explosionDamage: 15
+  explosionForce: 10
+  explosionEffect: {fileID: 0}
+  aftermathObject: {fileID: 0}
 --- !u!1 &5846606655436488463
 GameObject:
   m_ObjectHideFlags: 0
@@ -4151,7 +4176,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd3326cbfba6b994495d84fc776a7f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 60
+  maxHp: 25
+  explodes: 1
+  explosionRadius: 2
+  explosionDamage: 5
+  explosionForce: 100
+  explosionEffect: {fileID: 135030593720171309, guid: e9239318ed39f174992c518f6b3507a4,
+    type: 3}
+  aftermathObject: {fileID: 4479369955905507204, guid: 43ab319d3e3833645a876d4072f8320a,
+    type: 3}
 --- !u!1 &6336812591216577411
 GameObject:
   m_ObjectHideFlags: 0
@@ -5018,7 +5051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 332771a80c99f094cb40f86261bc7c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 25
+  maxHp: 70
   lifebarBackground: {fileID: 7100135550509850697}
   lifebarForeground: {fileID: 7100135550222366723}
   deathVisualEffect: {fileID: 0}

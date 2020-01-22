@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -931741033
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 483600d7c2102384eb9aa1d5750273bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -96,7 +96,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd3326cbfba6b994495d84fc776a7f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 60
+  maxHp: 25
+  explodes: 1
+  explosionRadius: 2
+  explosionDamage: 5
+  explosionForce: 100
+  explosionEffect: {fileID: 135030593720171309, guid: e9239318ed39f174992c518f6b3507a4,
+    type: 3}
+  aftermathObject: {fileID: 4479369955905507204, guid: 43ab319d3e3833645a876d4072f8320a,
+    type: 3}
 --- !u!50 &7333877801799204234
 Rigidbody2D:
   serializedVersion: 4

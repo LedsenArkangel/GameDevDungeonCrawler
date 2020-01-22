@@ -397,10 +397,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 332771a80c99f094cb40f86261bc7c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 25
+  maxHp: 70
   lifebarBackground: {fileID: 4935015669743790063}
   lifebarForeground: {fileID: 4935015668961771429}
-  deathEffect: {fileID: 0}
+  deathVisualEffect: {fileID: 0}
+  bloodPool: {fileID: 0}
 --- !u!114 &5682977696241089787
 MonoBehaviour:
   m_ObjectHideFlags: 0

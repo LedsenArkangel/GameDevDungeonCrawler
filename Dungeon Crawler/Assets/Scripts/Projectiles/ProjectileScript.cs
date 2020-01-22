@@ -8,6 +8,7 @@ public class ProjectileScript : MonoBehaviour
     public float speed = 4f;
     public float damage = 10f;
     public int bounceAmount = 0;
+    public float lifeTime = 10f;
     public ProjectileType type = ProjectileType.IMPACT;
 
     [Header("Explosive attributes")]
@@ -44,6 +45,11 @@ public class ProjectileScript : MonoBehaviour
     
     void Update()
     {
+        lifeTime -= Time.deltaTime;
+        if (lifeTime <= 0) {
+            if (type == ProjectileType.EXPLOSIVE) Explode();
+            Destroy(gameObject);
+        }
         if (rotating && GetComponentInChildren<Transform>() != null) GetComponentInChildren<Transform>().Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
         if (hasPointDirection && GetComponentInChildren<Transform>() != null)
         {
@@ -145,7 +151,7 @@ public class ProjectileScript : MonoBehaviour
             }
             if (collider.gameObject.GetComponent<ObjectScript>() != null)
             {
-                collider.gameObject.GetComponent<ObjectScript>().TakeDamage(damage / 2f);
+                collider.gameObject.GetComponent<ObjectScript>().TakeDamage(explosionDamage);
                 if (collider.gameObject.GetComponent<Rigidbody2D>() != null) collider.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(collider.transform.position.x - transform.position.x, collider.transform.position.y - transform.position.y).normalized * explosionForce);
             }
         }

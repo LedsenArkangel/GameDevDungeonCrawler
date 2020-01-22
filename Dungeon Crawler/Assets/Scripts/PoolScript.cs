@@ -32,7 +32,7 @@ public class PoolScript : MonoBehaviour
         //enemy in pool
         else if (collision.gameObject.GetComponent<Enemystats>() != null)
         {
-            if (type == PoolType.FIRE || type == PoolType.ACID) collision.gameObject.GetComponent<Playerstats>().TakeDamage(damagePerSecond * Time.deltaTime);
+            if (type == PoolType.FIRE || type == PoolType.ACID) collision.gameObject.GetComponent<Enemystats>().TakeDamage(damagePerSecond * Time.deltaTime);
         }
         //projectile over pool
         else if (collision.gameObject.GetComponent<ProjectileScript>() != null)
