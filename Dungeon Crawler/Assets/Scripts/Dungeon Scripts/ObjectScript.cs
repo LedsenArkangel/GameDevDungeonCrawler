@@ -18,6 +18,11 @@ public class ObjectScript : MonoBehaviour
 
     private float currentHp = 100;
 
+    private void Start()
+    {
+        currentHp = maxHp;
+    }
+
     public void TakeDamage(float damage)
     {
         currentHp -= damage;

@@ -8,8 +8,10 @@ public class DungeonRoomGenerator : MonoBehaviour
     public GameObject BasicRoomTemplate;
     public GameObject BossRoomTemplate;
     public GameObject pathFindingMesh;
+    public GameObject gameOver;
     public int level=0;
     public int firstBossRoom = 10;
+    public int finalLevel = 10;
     float roomOffSetPerLevel=15.25f;
 
     public void GenerateNextRoom()
@@ -18,6 +20,8 @@ public class DungeonRoomGenerator : MonoBehaviour
         GameObject room;
         if(level != firstBossRoom)room = Instantiate(BasicRoomTemplate, new Vector2(0, roomOffSetPerLevel*level), Quaternion.identity);
         else room = Instantiate(BossRoomTemplate, new Vector2(0, roomOffSetPerLevel * level), Quaternion.identity);
+
+        if (level == finalLevel + 1) gameOver.GetComponent<GameoverScript>().GameOver(false);
 
         if (room.GetComponent<RoomGenerator>() != null) room.GetComponent<RoomGenerator>().GenerateObjectsAndEnemies(level);
 

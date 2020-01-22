@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
-    public bool isFinalDoor = false;
-
     DungeonRoomGenerator roomGenerator;
 
     // Start is called before the first frame update
@@ -21,7 +19,6 @@ public class DoorScript : MonoBehaviour
         {
             roomGenerator.GenerateNextRoom();
             Destroy(gameObject, 0.05f);
-            //if final door end game
             return true;
         }
         return false;

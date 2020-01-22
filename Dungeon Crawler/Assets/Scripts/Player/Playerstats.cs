@@ -16,6 +16,9 @@ public class Playerstats : MonoBehaviour
     public RectTransform manabarBackground;
     public RectTransform manabarForeground;
 
+    [Header("Game over settings")]
+    public GameObject gameOver;
+
     private float currentHp = 100;
     private float currentMana = 100f;
 
@@ -66,8 +69,13 @@ public class Playerstats : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHp -= damage;
-        if (currentHp < 0) currentHp=0;
-        //die;
+        if (currentHp < 0) die();
+    }
+
+    public void die()
+    {
+        gameOver.GetComponent<GameoverScript>().GameOver(true);
+        Time.timeScale = 0f;
     }
 
 }
