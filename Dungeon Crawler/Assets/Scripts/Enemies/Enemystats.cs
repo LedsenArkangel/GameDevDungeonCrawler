@@ -11,8 +11,9 @@ public class Enemystats : MonoBehaviour
     public RectTransform lifebarBackground;
     public RectTransform lifebarForeground;
 
-    [Header("visuals")]
-    public GameObject deathEffect;
+    [Header("on death effects")]
+    public GameObject deathVisualEffect;
+    public GameObject bloodPool;
 
     private float currentHp = 100;
 
@@ -36,7 +37,8 @@ public class Enemystats : MonoBehaviour
     
     public void die()
     {
-        if(deathEffect != null)Instantiate(deathEffect,transform.position, Quaternion.identity);
+        if (deathVisualEffect != null)Instantiate(deathVisualEffect, transform.position, Quaternion.identity);
+        if (bloodPool != null) Instantiate(bloodPool, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

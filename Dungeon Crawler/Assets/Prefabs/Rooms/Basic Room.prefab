@@ -69,7 +69,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1970586031
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 81aeff925c1b3374b8ed10df139936af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -211,7 +211,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1970586031
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 81aeff925c1b3374b8ed10df139936af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -320,7 +320,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1970586031
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a0f56c490d9eaa94a9dcd142c3b180be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -440,7 +440,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1970586031
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 81aeff925c1b3374b8ed10df139936af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -629,7 +629,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1970586031
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 81aeff925c1b3374b8ed10df139936af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -722,4 +722,7 @@ MonoBehaviour:
   - {fileID: 7333877801799204232, guid: 47e581ef5bbe09546821efcc34cfae5d, type: 3}
   - {fileID: 7333877801799204232, guid: 3dadfa05e03660f49866aa141c4d4be7, type: 3}
   - {fileID: 7333877801799204232, guid: 84ad2ae106254f44aa0e09865578d051, type: 3}
+  - {fileID: 7333877801799204232, guid: 6c279b871adade442b0e5d25e5838c66, type: 3}
+  - {fileID: 7333877801799204232, guid: bc6d54fc4d420cb40b96132dcd5de9bc, type: 3}
+  - {fileID: 7333877801799204232, guid: 36ce1cdc2e271114aaf3d50703ffae8c, type: 3}
   type: 0

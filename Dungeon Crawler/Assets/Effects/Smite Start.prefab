@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 135030593720171310}
   - component: {fileID: 135030593720171311}
   - component: {fileID: 135030593720171308}
+  - component: {fileID: 7291371617647901662}
   m_Layer: 0
   m_Name: Smite Start
   m_TagString: Untagged
@@ -4787,7 +4788,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -165213783
-  m_SortingLayer: 8
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -4812,3 +4813,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &7291371617647901662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135030593720171309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e50e554f3964d22488f4196c3d30a851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathTimer: 2

@@ -46,6 +46,17 @@ public class Playerstats : MonoBehaviour
         return false;
     }
 
+    //gains mana, returns false if not possible
+    public bool gainMana(float gain)
+    {
+        if (gain + currentMana <= maxMana)
+        {
+            currentMana += gain;
+            return true;
+        }
+        return false;
+    }
+
     public void heal(float healAmount)
     {
         if (currentHp + healAmount > maxHp) currentHp = maxHp;
