@@ -716,7 +716,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombie: {fileID: 4935015670075312507, guid: e51d97f4fbb2699408387092e8ce6851, type: 3}
   spider: {fileID: 302167786759516316, guid: d2263edc9b680124b8ab0441d9fd25d5, type: 3}
-  boss: {fileID: 0}
+  wraith: {fileID: 4935015670075312507, guid: f33790afd3af7c745ba4e9f17894f0e9, type: 3}
+  boss: {fileID: 302167786759516316, guid: d2263edc9b680124b8ab0441d9fd25d5, type: 3}
   wall: {fileID: 9126502015539306847, guid: f09c5ec5656fb5240b7f385bf4ee9444, type: 3}
   objects:
   - {fileID: 7333877801799204232, guid: 47e581ef5bbe09546821efcc34cfae5d, type: 3}

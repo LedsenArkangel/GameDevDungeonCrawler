@@ -34,7 +34,13 @@ public class Enemystats : MonoBehaviour
         currentHp -= damage;
         if (currentHp < 0) die();
     }
-    
+
+    public void TakeDamage(float damage, DamageType damageType)
+    {
+        currentHp -= damage;
+        if (currentHp < 0) die();
+    }
+
     public void die()
     {
         if (deathVisualEffect != null)Instantiate(deathVisualEffect, transform.position, Quaternion.identity);

@@ -72,6 +72,12 @@ public class Playerstats : MonoBehaviour
         if (currentHp < 0) die();
     }
 
+    public void TakeDamage(float damage, DamageType damageType)
+    {
+        currentHp -= damage;
+        if (currentHp < 0) die();
+    }
+
     public void die()
     {
         gameOver.GetComponent<GameoverScript>().GameOver(true);

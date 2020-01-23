@@ -9,6 +9,7 @@ public class Smite : MonoBehaviour
     public float damage = 20f;
     public float smiteSize = 3f;
     public float smiteForce = 200f;
+    public DamageType damageType = DamageType.HOLY;
 
     public void useSmite(GameObject player, Vector3 targetPosition,  GameObject spellUseEffectPrimary, GameObject spellUseEffectSecondary)
     {
@@ -26,12 +27,12 @@ public class Smite : MonoBehaviour
         {
             if (collider.gameObject.GetComponent<Enemystats>() != null)
             {
-                collider.gameObject.GetComponent<Enemystats>().TakeDamage(damage);
+                collider.gameObject.GetComponent<Enemystats>().TakeDamage(damage, damageType);
                 collider.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(collider.transform.position.x - position.x, collider.transform.position.y - position.y).normalized * smiteForce);
             }
             if (collider.gameObject.GetComponent<ObjectScript>() != null)
             {
-                collider.gameObject.GetComponent<ObjectScript>().TakeDamage(damage/2f);
+                collider.gameObject.GetComponent<ObjectScript>().TakeDamage(damage/2f, damageType);
                 if (collider.gameObject.GetComponent<Rigidbody2D>() != null) collider.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(collider.transform.position.x - position.x, collider.transform.position.y - position.y).normalized * smiteForce);
             }
         }

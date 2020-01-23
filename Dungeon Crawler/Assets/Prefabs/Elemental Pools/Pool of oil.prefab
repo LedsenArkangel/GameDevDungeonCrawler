@@ -48,6 +48,16 @@ MonoBehaviour:
   lifeTime: 30
   damagePerSecond: 0
   type: 1
+  damageType: 0
+  explodes: 1
+  explosionCatalyst: 1
+  explosionRadius: 2
+  explosionDamage: 15
+  explosionForce: 200
+  explosionEffect: {fileID: 135030593720171309, guid: 8914d2886d7f611408ff33c3fee02e18,
+    type: 3}
+  afterMath: {fileID: 4479369955905507204, guid: 69b3bd38775bd994980ea72c836a7216,
+    type: 3}
 --- !u!58 &1886983479247097543
 CircleCollider2D:
   m_ObjectHideFlags: 0

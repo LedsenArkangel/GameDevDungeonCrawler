@@ -6,6 +6,7 @@ public class RoomGenerator : MonoBehaviour
 {
     public GameObject zombie;
     public GameObject spider;
+    public GameObject wraith;
     public GameObject boss;
     public GameObject wall;
 
@@ -90,13 +91,46 @@ public class RoomGenerator : MonoBehaviour
                     break;
             }
 
-            //generate X zombies
-            int amountOfZombies = Random.Range(1, roomDifficulty * 2);
-            for (int i = 0; i < amountOfZombies; i++)
-            {
-                Instantiate(zombie, new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 1f, distanceToWestWall - 1f), roomCenter.y + Random.Range(-distanceToNorthWall + 1f, distanceToNorthWall - 1f)), Quaternion.identity);
-            }
+            int enemyRng = Random.Range(0, 3); //Random.Range(0, 8);
 
+            switch (roomRng)
+            {
+                //zombie room
+                case 0:
+                    //generate X zombies
+                    int amountOfZombies = Random.Range(1, roomDifficulty * 2);
+                    for (int i = 0; i < amountOfZombies; i++)
+                    {
+                        Instantiate(zombie, new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 1f, distanceToWestWall - 1f), roomCenter.y + Random.Range(-distanceToNorthWall + 1f, distanceToNorthWall - 1f)), Quaternion.identity);
+                    }
+                    break;
+                //spider and zombie room
+                case 1:
+                    //generate X spiders
+                    int amountOfSpiders = Random.Range(1, roomDifficulty);
+                    for (int i = 0; i < amountOfSpiders; i++)
+                    {
+                        Instantiate(spider, new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 1f, distanceToWestWall - 1f), roomCenter.y + Random.Range(-distanceToNorthWall + 1f, distanceToNorthWall - 1f)), Quaternion.identity);
+                    }
+                    //generate X zombies
+                    int amountOfZombies2 = Random.Range(1, roomDifficulty);
+                    for (int i = 0; i < amountOfZombies2; i++)
+                    {
+                        Instantiate(zombie, new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 1f, distanceToWestWall - 1f), roomCenter.y + Random.Range(-distanceToNorthWall + 1f, distanceToNorthWall - 1f)), Quaternion.identity);
+                    }
+                    break;
+                case 2:
+                    //generate X wraiths
+                    int amountOfWraiths = Random.Range(1, roomDifficulty + 1);
+                    for (int i = 0; i < amountOfWraiths; i++)
+                    {
+                        Instantiate(wraith, new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 1f, distanceToWestWall - 1f), roomCenter.y + Random.Range(-distanceToNorthWall + 1f, distanceToNorthWall - 1f)), Quaternion.identity);
+                    }
+                    break;
+                default:
+                    break;
+            }
+            
             //generate objects
             int amountOfObjects = Random.Range(1, 7);
             for (int k = 0; k < amountOfObjects; k++)

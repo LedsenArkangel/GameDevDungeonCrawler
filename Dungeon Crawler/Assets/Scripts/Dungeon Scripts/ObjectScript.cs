@@ -29,6 +29,12 @@ public class ObjectScript : MonoBehaviour
         if (currentHp < 0) breakObject();
     }
 
+    public void TakeDamage(float damage, DamageType damageType)
+    {
+        currentHp -= damage;
+        if (currentHp < 0) breakObject();
+    }
+
     public void Explode()
     {
         explodes = false;

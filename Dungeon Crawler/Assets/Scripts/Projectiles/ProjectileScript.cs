@@ -10,6 +10,7 @@ public class ProjectileScript : MonoBehaviour
     public int bounceAmount = 0;
     public float lifeTime = 10f;
     public ProjectileType type = ProjectileType.IMPACT;
+    public DamageType damageType = DamageType.BASIC;
 
     [Header("Explosive attributes")]
     public float explosionRadius = 2f;
@@ -47,8 +48,7 @@ public class ProjectileScript : MonoBehaviour
     {
         lifeTime -= Time.deltaTime;
         if (lifeTime <= 0) {
-            if (type == ProjectileType.EXPLOSIVE) Explode();
-            Destroy(gameObject);
+            destroyProjectile();
         }
         if (rotating && GetComponentInChildren<Transform>() != null) GetComponentInChildren<Transform>().Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
         if (hasPointDirection && GetComponentInChildren<Transform>() != null)
@@ -77,55 +77,28 @@ public class ProjectileScript : MonoBehaviour
         //hit player
         if (collision.gameObject.GetComponent<Playerstats>() != null)
         {
-            if (type == ProjectileType.IMPACT || type == ProjectileType.MISSILE)
-            {
-                collision.gameObject.GetComponent<Playerstats>().TakeDamage(damage);
-                Destroy(gameObject);
-            }
-            if (type == ProjectileType.EXPLOSIVE)
-            {
-                collision.gameObject.GetComponent<Playerstats>().TakeDamage(damage);
-                Explode();
-                Destroy(gameObject);
-            }
+            collision.gameObject.GetComponent<Playerstats>().TakeDamage(damage, damageType);
+            destroyProjectile();
+            
         }
         //hit enemy
         else if (collision.gameObject.GetComponent<Enemystats>() != null)
         {
-            if(type == ProjectileType.IMPACT || type == ProjectileType.MISSILE)
-            {
-                collision.gameObject.GetComponent<Enemystats>().TakeDamage(damage);
-                Destroy(gameObject);
-            }
-            if (type == ProjectileType.EXPLOSIVE)
-            {
-                collision.gameObject.GetComponent<Enemystats>().TakeDamage(damage);
-                Explode();
-                Destroy(gameObject);
-            }
+            collision.gameObject.GetComponent<Enemystats>().TakeDamage(damage, damageType);
+            destroyProjectile();
         }
         //hit object
         else if (collision.gameObject.GetComponent<ObjectScript>() != null)
         {
-            if (type == ProjectileType.IMPACT || type == ProjectileType.MISSILE)
-            {
-                collision.gameObject.GetComponent<ObjectScript>().TakeDamage(damage);
-                Destroy(gameObject);
-            }
-            if (type == ProjectileType.EXPLOSIVE)
-            {
-                collision.gameObject.GetComponent<ObjectScript>().TakeDamage(damage);
-                Explode();
-                Destroy(gameObject);
-            }
+            collision.gameObject.GetComponent<ObjectScript>().TakeDamage(damage, damageType);
+            destroyProjectile();    
         }
         //hits a wall or other collider
         else
         {
             if (bounceAmount <= 0)
             {
-                if (type == ProjectileType.EXPLOSIVE) Explode();
-                Destroy(gameObject);
+                destroyProjectile();
             }
             bounceAmount--;
         }
@@ -141,20 +114,26 @@ public class ProjectileScript : MonoBehaviour
         {
             if (collider.gameObject.GetComponent<Playerstats>() != null)
             {
-                collider.gameObject.GetComponent<Playerstats>().TakeDamage(explosionDamage);
+                collider.gameObject.GetComponent<Playerstats>().TakeDamage(explosionDamage, damageType);
                 collider.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(collider.transform.position.x - transform.position.x, collider.transform.position.y - transform.position.y).normalized * explosionForce);
             }
             if (collider.gameObject.GetComponent<Enemystats>() != null)
             {
-                collider.gameObject.GetComponent<Enemystats>().TakeDamage(explosionDamage);
+                collider.gameObject.GetComponent<Enemystats>().TakeDamage(explosionDamage, damageType);
                 collider.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(collider.transform.position.x - transform.position.x, collider.transform.position.y - transform.position.y).normalized * explosionForce);
             }
             if (collider.gameObject.GetComponent<ObjectScript>() != null)
             {
-                collider.gameObject.GetComponent<ObjectScript>().TakeDamage(explosionDamage);
+                collider.gameObject.GetComponent<ObjectScript>().TakeDamage(explosionDamage, damageType);
                 if (collider.gameObject.GetComponent<Rigidbody2D>() != null) collider.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(collider.transform.position.x - transform.position.x, collider.transform.position.y - transform.position.y).normalized * explosionForce);
             }
         }
+    }
+
+    public void destroyProjectile()
+    {
+        if (type == ProjectileType.EXPLOSIVE) Explode();
+        Destroy(gameObject);
     }
 
     public enum ProjectileType

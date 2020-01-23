@@ -22,6 +22,7 @@ public class GameoverScript : MonoBehaviour
             gameOverButton.GetComponent<Image>().color = new Color(1, 0.92f, 0.016f, 1);
         }
         gameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void GoToMenu()
