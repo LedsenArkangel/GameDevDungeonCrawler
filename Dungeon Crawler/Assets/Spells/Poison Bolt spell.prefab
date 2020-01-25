@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3013714477175318345}
   - component: {fileID: 5019003033625438160}
   m_Layer: 0
-  m_Name: Poison Bolt
+  m_Name: Poison Bolt spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,6 +49,9 @@ MonoBehaviour:
   spell: 5
   projectile: {fileID: 2163941253363409920, guid: 318e57108b70e074489d1aec5ba9a940,
     type: 3}
+  maxAmmo: 3
+  currentAmmo: 3
+  ammoRegenPerSecond: 1
   spellUseEffectPrimary: {fileID: 0}
   spellUseEffectSecondary: {fileID: 0}
   spellUseEffectSTetriary: {fileID: 0}

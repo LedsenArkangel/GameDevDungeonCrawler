@@ -15,6 +15,7 @@ public class Playeractions : MonoBehaviour
     [Header("Spell display")]
     public Text spellNameTextDisplay;
     public Image spellIconDisplay;
+    public Text spellAmmoDisplay;
 
 
     [Header("Magic boots attributes")]
@@ -33,6 +34,8 @@ public class Playeractions : MonoBehaviour
     
     void Update()
     {
+        UpdateAmmo();
+
         //swap weapons
         if (Input.GetKeyDown("e"))
         {
@@ -74,12 +77,36 @@ public class Playeractions : MonoBehaviour
         }
     }
 
+    void UpdateAmmo()
+    {
+        foreach (GameObject spell in spells)
+        {
+            if (spell.GetComponent<SpellBase>() != null)
+            {
+                if (spell.GetComponent<SpellBase>().currentAmmo < spell.GetComponent<SpellBase>().maxAmmo)
+                {
+                    spell.GetComponent<SpellBase>().currentAmmo += spell.GetComponent<SpellBase>().ammoRegenPerSecond * Time.deltaTime;
+                }
+            }
+        }
+
+        if (spells[equippedSpell].GetComponent<SpellBase>() != null)
+        {
+            int currentAmmoDisplayValue = Mathf.RoundToInt(spells[equippedSpell].GetComponent<SpellBase>().currentAmmo);
+            int maxAmmoDisplayValue = Mathf.RoundToInt(spells[equippedSpell].GetComponent<SpellBase>().maxAmmo);
+            spellAmmoDisplay.text = "" + currentAmmoDisplayValue + " / " + maxAmmoDisplayValue;
+        }
+    }
+
     void UpdateSpellDisplay()
     {
         if (spells[equippedSpell].GetComponent<SpellBase>() != null)
         {
             spellNameTextDisplay.text = spells[equippedSpell].GetComponent<SpellBase>().spellName;
             spellIconDisplay.sprite = spells[equippedSpell].GetComponent<SpellBase>().spellIcon;
+            int currentAmmoDisplayValue = Mathf.RoundToInt(spells[equippedSpell].GetComponent<SpellBase>().currentAmmo);
+            int maxAmmoDisplayValue = Mathf.RoundToInt(spells[equippedSpell].GetComponent<SpellBase>().maxAmmo);
+            spellAmmoDisplay.text = "" + currentAmmoDisplayValue + " / " + maxAmmoDisplayValue;
         }
     }
 }

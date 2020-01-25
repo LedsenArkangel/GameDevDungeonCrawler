@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3013714477175318345}
   - component: {fileID: 5019003033625438160}
   m_Layer: 0
-  m_Name: Ninja star
+  m_Name: Ninja star spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,3 +49,9 @@ MonoBehaviour:
   spell: 1
   projectile: {fileID: 2163941253363409920, guid: 7ae575f008fb9dd4b8b707f508d991ac,
     type: 3}
+  maxAmmo: 5
+  currentAmmo: 5
+  ammoRegenPerSecond: 2
+  spellUseEffectPrimary: {fileID: 0}
+  spellUseEffectSecondary: {fileID: 0}
+  spellUseEffectSTetriary: {fileID: 0}

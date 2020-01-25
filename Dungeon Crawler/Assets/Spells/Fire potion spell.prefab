@@ -49,3 +49,9 @@ MonoBehaviour:
   spell: 2
   projectile: {fileID: 2163941253363409920, guid: 0e1467a2d2f4a7442a91582422cf57ec,
     type: 3}
+  maxAmmo: 5
+  currentAmmo: 5
+  ammoRegenPerSecond: 3
+  spellUseEffectPrimary: {fileID: 0}
+  spellUseEffectSecondary: {fileID: 0}
+  spellUseEffectSTetriary: {fileID: 0}

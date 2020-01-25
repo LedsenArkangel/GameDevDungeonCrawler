@@ -10,6 +10,10 @@ public class SpellBase : MonoBehaviour
     public Spell spell;
     public GameObject projectile;
 
+    public float maxAmmo = 1;
+    public float currentAmmo = 1;
+    public float ammoRegenPerSecond = 1f;
+
     [Header("Visual effects")]
     public GameObject spellUseEffectPrimary;
     public GameObject spellUseEffectSecondary;
@@ -18,9 +22,11 @@ public class SpellBase : MonoBehaviour
     public void useSpell(GameObject player)
     {
         if (player.GetComponent<Playerstats>() == null) return;
+        if (currentAmmo < 0.5f) return;
 
         if(player.GetComponent<Playerstats>().useMana(manaCost))
         {
+            currentAmmo -= 1f;
 
             switch (spell)
             {

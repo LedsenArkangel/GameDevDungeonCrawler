@@ -48,4 +48,9 @@ MonoBehaviour:
   manaCost: 15
   spell: 3
   projectile: {fileID: 0}
-  spellUseEffect: {fileID: 0}
+  maxAmmo: 3
+  currentAmmo: 3
+  ammoRegenPerSecond: 0.5
+  spellUseEffectPrimary: {fileID: 0}
+  spellUseEffectSecondary: {fileID: 0}
+  spellUseEffectSTetriary: {fileID: 0}
