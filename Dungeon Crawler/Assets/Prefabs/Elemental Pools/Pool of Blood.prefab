@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1886983479247097540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 1886983479544477905}
   m_Father: {fileID: 0}
@@ -48,6 +48,14 @@ MonoBehaviour:
   lifeTime: 20
   damagePerSecond: 0
   type: 0
+  damageType: 0
+  explodes: 0
+  explosionCatalyst: 1
+  explosionRadius: 2
+  explosionDamage: 15
+  explosionForce: 10
+  explosionEffect: {fileID: 0}
+  afterMath: {fileID: 0}
 --- !u!58 &1886983479247097543
 CircleCollider2D:
   m_ObjectHideFlags: 0

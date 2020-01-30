@@ -40,6 +40,5 @@ public class EnemyGFX : MonoBehaviour
         {
             //TODO: use up animation
         }
-
     }
 }

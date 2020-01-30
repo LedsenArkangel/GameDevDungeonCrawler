@@ -96,13 +96,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd3326cbfba6b994495d84fc776a7f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 50
+  maxHp: 30
   explodes: 0
   explosionRadius: 2
   explosionDamage: 15
   explosionForce: 10
   explosionEffect: {fileID: 0}
-  aftermathObject: {fileID: 0}
+  aftermathObject: {fileID: 135030593720171309, guid: 38a82337f32af9342999d43f131de755,
+    type: 3}
 --- !u!50 &7333877801799204234
 Rigidbody2D:
   serializedVersion: 4

@@ -744,7 +744,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2587,13 +2587,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd3326cbfba6b994495d84fc776a7f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  maxHp: 50
   explodes: 0
   explosionRadius: 2
   explosionDamage: 15
   explosionForce: 10
   explosionEffect: {fileID: 0}
-  aftermathObject: {fileID: 0}
+  aftermathObject: {fileID: 135030593720171309, guid: 38a82337f32af9342999d43f131de755,
+    type: 3}
 --- !u!212 &1444783696
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3843,7 +3844,8 @@ MonoBehaviour:
   explosionDamage: 15
   explosionForce: 10
   explosionEffect: {fileID: 0}
-  aftermathObject: {fileID: 0}
+  aftermathObject: {fileID: 135030593720171309, guid: 38a82337f32af9342999d43f131de755,
+    type: 3}
 --- !u!1 &899484109651836145
 GameObject:
   m_ObjectHideFlags: 0
@@ -4189,13 +4191,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd3326cbfba6b994495d84fc776a7f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  maxHp: 50
   explodes: 0
   explosionRadius: 2
   explosionDamage: 15
   explosionForce: 10
   explosionEffect: {fileID: 0}
-  aftermathObject: {fileID: 0}
+  aftermathObject: {fileID: 135030593720171309, guid: 38a82337f32af9342999d43f131de755,
+    type: 3}
 --- !u!50 &3226505054415512562
 Rigidbody2D:
   serializedVersion: 4
@@ -4800,13 +4803,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd3326cbfba6b994495d84fc776a7f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  maxHp: 50
   explodes: 0
   explosionRadius: 2
   explosionDamage: 15
   explosionForce: 10
   explosionEffect: {fileID: 0}
-  aftermathObject: {fileID: 0}
+  aftermathObject: {fileID: 135030593720171309, guid: 38a82337f32af9342999d43f131de755,
+    type: 3}
 --- !u!1 &5846606655436488463
 GameObject:
   m_ObjectHideFlags: 0
@@ -4888,7 +4892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd3326cbfba6b994495d84fc776a7f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 25
+  maxHp: 10
   explodes: 1
   explosionRadius: 2
   explosionDamage: 5
