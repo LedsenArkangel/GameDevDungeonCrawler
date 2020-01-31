@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemystats : MonoBehaviour
 {
@@ -16,17 +17,29 @@ public class Enemystats : MonoBehaviour
     public GameObject bloodPool;
 
     private float currentHp = 100;
+    private GameObject player;
+    private float hpBarVisibilityRange = 4f;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHp = maxHp;
+        player = GameObject.FindGameObjectsWithTag("Player")[0];
     }
 
     // Update is called once per frame
     void Update()
     {
-        lifebarForeground.sizeDelta = new Vector2(lifebarBackground.sizeDelta.x * (currentHp / maxHp), lifebarForeground.sizeDelta.y);
+        if ((transform.position - player.transform.position).magnitude < hpBarVisibilityRange) {
+            lifebarForeground.gameObject.SetActive(true);
+            lifebarBackground.gameObject.SetActive(true);
+            lifebarForeground.sizeDelta = new Vector2(lifebarBackground.sizeDelta.x * (currentHp / maxHp), lifebarForeground.sizeDelta.y);
+        }
+        else
+        {
+            lifebarForeground.gameObject.SetActive(false);
+            lifebarBackground.gameObject.SetActive(false);
+        }
     }
 
     public void TakeDamage(float damage)
