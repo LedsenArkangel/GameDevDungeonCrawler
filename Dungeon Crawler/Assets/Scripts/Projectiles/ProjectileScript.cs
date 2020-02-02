@@ -11,6 +11,7 @@ public class ProjectileScript : MonoBehaviour
     public float lifeTime = 10f;
     public ProjectileType type = ProjectileType.IMPACT;
     public DamageType damageType = DamageType.BASIC;
+    public GameObject afterMath;
 
     [Header("Explosive attributes")]
     public float explosionRadius = 2f;
@@ -133,6 +134,7 @@ public class ProjectileScript : MonoBehaviour
     public void destroyProjectile()
     {
         if (type == ProjectileType.EXPLOSIVE) Explode();
+        if (afterMath != null) Instantiate(afterMath, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

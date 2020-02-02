@@ -103,7 +103,7 @@ MonoBehaviour:
   bounceAmount: 0
   lifeTime: 10
   type: 0
-  damageType: 0
+  damageType: 3
   explosionRadius: 2
   explosionDamage: 15
   explosionForce: 10

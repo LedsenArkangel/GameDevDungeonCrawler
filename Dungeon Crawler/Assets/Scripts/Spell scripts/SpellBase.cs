@@ -53,6 +53,14 @@ public class SpellBase : MonoBehaviour
                     GameObject frostBolt = Instantiate(projectile, player.transform.position, Quaternion.identity);
                     frostBolt.GetComponent<ProjectileScript>().initializeProjectile(getDirectionFromMouseToPlayer(player), player.GetComponent<Collider2D>());
                     break;
+                case Spell.FIREBOLT:
+                    GameObject fireBolt = Instantiate(projectile, player.transform.position, Quaternion.identity);
+                    fireBolt.GetComponent<ProjectileScript>().initializeProjectile(getDirectionFromMouseToPlayer(player), player.GetComponent<Collider2D>());
+                    break;
+                case Spell.OILPOTION:
+                    GameObject oilpotion = Instantiate(projectile, player.transform.position, Quaternion.identity);
+                    oilpotion.GetComponent<ProjectileScript>().initializeProjectile(getDirectionFromMouseToPlayer(player), player.GetComponent<Collider2D>());
+                    break;
                 default:
                     Debug.Log("spell not defined");
                     break;
@@ -71,7 +79,7 @@ public class SpellBase : MonoBehaviour
 
     public enum Spell
     {
-        UNDEFINED, NINJASTAR, FIREPOTION, HEAL, SMITE, POISONBOLT, FROSTBOLT
+        UNDEFINED, NINJASTAR, FIREPOTION, HEAL, SMITE, POISONBOLT, FROSTBOLT, FIREBOLT, OILPOTION
     }
 
 }

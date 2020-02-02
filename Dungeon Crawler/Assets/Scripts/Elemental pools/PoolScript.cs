@@ -10,15 +10,16 @@ public class PoolScript : MonoBehaviour
     public DamageType damageType = DamageType.BASIC;
 
     [Header("Explosive attributes")]
-    public bool explodes = false;
-    public DamageType explosionCatalyst = DamageType.FIRE;
     public float explosionRadius = 2f;
     public float explosionDamage = 15f;
     public float explosionForce = 10f;
     public GameObject explosionEffect;
+
+    [Header("Interaction attributes")]
+    public bool interactsWithElements = false;
     public GameObject afterMath;
 
-    // Update is called once per frame
+    
     void Update()
     {
         lifeTime -= Time.deltaTime;
@@ -43,18 +44,51 @@ public class PoolScript : MonoBehaviour
         {
             if (type == PoolType.FIRE || type == PoolType.ACID) collision.gameObject.GetComponent<Enemystats>().TakeDamage(damagePerSecond * Time.deltaTime, damageType);
         }
+        //object in pool
+        else if (collision.gameObject.GetComponent<ObjectScript>() != null)
+        {
+            if (type == PoolType.FIRE || type == PoolType.ACID) collision.gameObject.GetComponent<ObjectScript>().TakeDamage(damagePerSecond * Time.deltaTime, damageType);
+        }
+        //pool in pool
+        //(does not work yet since pool colliders are triggers)
+        else if (collision.gameObject.GetComponent<PoolScript>() != null)
+        {
+            //fire spreads over oil
+            if (type == PoolType.FIRE && collision.gameObject.GetComponent<PoolScript>().type == PoolType.OIL)
+            {
+                collision.gameObject.GetComponent<PoolScript>().afterMathSpawn();
+                Destroy(collision.gameObject);
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //projectile over pool
-        if (collision.gameObject.GetComponent<ProjectileScript>() != null)
+        if (interactsWithElements)
         {
-            if (explodes)
+            //projectile over pool
+            if (collision.gameObject.GetComponent<ProjectileScript>() != null)
             {
+                //oil and acid explode from fire
                 if ((type == PoolType.OIL || type == PoolType.ACID) && collision.gameObject.GetComponent<ProjectileScript>().damageType.Equals(DamageType.FIRE))
                 {
-                    Explode();
+                        Explode();
+                        collision.gameObject.GetComponent<ProjectileScript>().destroyProjectile();
+                        Destroy(gameObject);
+                }
+                
+                //fire extingueshed by frost
+                if(type == PoolType.FIRE && collision.gameObject.GetComponent<ProjectileScript>().damageType.Equals(DamageType.FROST))
+                {
+                    afterMathSpawn();
+                    collision.gameObject.GetComponent<ProjectileScript>().destroyProjectile();
+                    Destroy(gameObject);
+                }
+
+                //water gets poisoned
+                if (type == PoolType.WATER && collision.gameObject.GetComponent<ProjectileScript>().damageType.Equals(DamageType.POISON))
+                {
+                    afterMathSpawn();
                     collision.gameObject.GetComponent<ProjectileScript>().destroyProjectile();
                     Destroy(gameObject);
                 }
@@ -86,13 +120,16 @@ public class PoolScript : MonoBehaviour
                 if (collider.gameObject.GetComponent<Rigidbody2D>() != null) collider.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(collider.transform.position.x - transform.position.x, collider.transform.position.y - transform.position.y).normalized * explosionForce);
             }
         }
+        afterMathSpawn();
+    }
 
+    public void afterMathSpawn()
+    {
         Instantiate(afterMath, transform.position, Quaternion.identity);
     }
 
-
     public enum PoolType
     {
-        BLOOD, OIL, FIRE, ACID
+        BLOOD, OIL, FIRE, ACID, WATER
     }
 }
