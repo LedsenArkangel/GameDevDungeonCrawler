@@ -46,7 +46,7 @@ MonoBehaviour:
   spellIcon: {fileID: 21300000, guid: 53cd6e0e73b4ba9418ad5afad5f8aca9, type: 3}
   spellName: Poison bolt
   manaCost: 10
-  spell: 5
+  spell: 1
   projectile: {fileID: 2163941253363409920, guid: 318e57108b70e074489d1aec5ba9a940,
     type: 3}
   maxAmmo: 3

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1814087024368933829}
   - component: {fileID: 6230626548679601870}
   - component: {fileID: 363875091152977651}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Oil potion
   m_TagString: Untagged
   m_Icon: {fileID: 0}

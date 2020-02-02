@@ -46,7 +46,7 @@ MonoBehaviour:
   spellIcon: {fileID: 21300000, guid: 78e2de539af866149a805442bfec2706, type: 3}
   spellName: Fire potion
   manaCost: 10
-  spell: 2
+  spell: 1
   projectile: {fileID: 2163941253363409920, guid: 0e1467a2d2f4a7442a91582422cf57ec,
     type: 3}
   maxAmmo: 5

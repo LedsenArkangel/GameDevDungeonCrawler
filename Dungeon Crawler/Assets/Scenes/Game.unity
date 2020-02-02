@@ -1348,6 +1348,7 @@ MonoBehaviour:
   - {fileID: 1123978299449160652, guid: b1e0fa6dccf0394449fefcb4774a621e, type: 3}
   - {fileID: 1123978299449160652, guid: 919272ab25425414fb251ac2e7235aa1, type: 3}
   - {fileID: 1123978299449160652, guid: aa273c6330b4ef243800b34c0492ad23, type: 3}
+  - {fileID: 1123978299449160652, guid: 218db9e4053bd63498111ba4a11ce3c3, type: 3}
   spellNameTextDisplay: {fileID: 247048143}
   spellIconDisplay: {fileID: 1954087881}
   spellAmmoDisplay: {fileID: 1368369939}

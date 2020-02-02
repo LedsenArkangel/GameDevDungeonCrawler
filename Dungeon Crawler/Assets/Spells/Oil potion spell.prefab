@@ -46,7 +46,7 @@ MonoBehaviour:
   spellIcon: {fileID: 21300000, guid: 1833ac29d004d5c4e8c396c03bf10d1a, type: 3}
   spellName: Oil potion
   manaCost: 5
-  spell: 8
+  spell: 1
   projectile: {fileID: 2163941253363409920, guid: ccb99edeecd77b44f9be76ccb2e53798,
     type: 3}
   maxAmmo: 5

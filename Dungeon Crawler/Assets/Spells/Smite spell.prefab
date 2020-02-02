@@ -47,8 +47,11 @@ MonoBehaviour:
   spellIcon: {fileID: 21300000, guid: 1f01ff6d9e865e1419fa646764736296, type: 3}
   spellName: Smite
   manaCost: 25
-  spell: 4
+  spell: 2
   projectile: {fileID: 0}
+  maxAmmo: 1
+  currentAmmo: 1
+  ammoRegenPerSecond: 1
   spellUseEffectPrimary: {fileID: 135030593720171309, guid: 78b8a1f0fae9813459f1b48b93fdefa4,
     type: 3}
   spellUseEffectSecondary: {fileID: 135030593720171309, guid: 79116e7d4e5bccb4a8d275b732935e48,
@@ -71,3 +74,4 @@ MonoBehaviour:
   damage: 20
   smiteSize: 3
   smiteForce: 200
+  damageType: 5
