@@ -178,6 +178,7 @@ MonoBehaviour:
   type: 1
   damageType: 1
   afterMath: {fileID: 0}
+  powerValue: 3
   explosionRadius: 2
   explosionDamage: 15
   explosionForce: 100

@@ -21,7 +21,7 @@ public class SpellBase : MonoBehaviour
     public GameObject spellUseEffectSecondary;
     public GameObject spellUseEffectSTetriary;
 
-    public SpellBase(Sprite spellIcon, string spellName, float manaCost, Spell spellType, GameObject projectile, float maxAmmo, float ammoRegenPerSecond)
+    public void EditSpellBase(Sprite spellIcon, string spellName, float manaCost, Spell spellType, GameObject projectile, float maxAmmo, float ammoRegenPerSecond)
     {
         this.spellIcon = spellIcon;
         this.spellName = spellName;
@@ -67,13 +67,21 @@ public class SpellBase : MonoBehaviour
                     GameObject projectileObject5 = Instantiate(projectile, player.transform.position, Quaternion.identity);
                     projectileObject5.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromMouseToPlayer(player), -22), player.GetComponent<Collider2D>());
                     break;
-                case Spell.BARRAGE3:
+                case Spell.BARRAGE3WIDE:
                     GameObject projectileObjectFirst = Instantiate(projectile, player.transform.position, Quaternion.identity);
                     projectileObjectFirst.GetComponent<ProjectileScript>().initializeProjectile(getDirectionFromMouseToPlayer(player), player.GetComponent<Collider2D>());
                     GameObject projectileObjectSecond = Instantiate(projectile, player.transform.position, Quaternion.identity);
                     projectileObjectSecond.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromMouseToPlayer(player), 45), player.GetComponent<Collider2D>());
                     GameObject projectileObjectThird = Instantiate(projectile, player.transform.position, Quaternion.identity);
                     projectileObjectThird.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromMouseToPlayer(player), -45), player.GetComponent<Collider2D>());
+                    break;
+                case Spell.BARRAGE3:
+                    GameObject projectileObjectOne = Instantiate(projectile, player.transform.position, Quaternion.identity);
+                    projectileObjectOne.GetComponent<ProjectileScript>().initializeProjectile(getDirectionFromMouseToPlayer(player), player.GetComponent<Collider2D>());
+                    GameObject projectileObjectTwo = Instantiate(projectile, player.transform.position, Quaternion.identity);
+                    projectileObjectTwo.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromMouseToPlayer(player), 22), player.GetComponent<Collider2D>());
+                    GameObject projectileObjectThree = Instantiate(projectile, player.transform.position, Quaternion.identity);
+                    projectileObjectThree.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromMouseToPlayer(player), -22), player.GetComponent<Collider2D>());
                     break;
                 default:
                     Debug.Log("spell not defined");
@@ -105,7 +113,7 @@ public class SpellBase : MonoBehaviour
     
     public enum Spell
     {
-        UNDEFINED, PROJECTILE, SMITE, HEAL, BARRAGE5, BARRAGE3
+        UNDEFINED, PROJECTILE, SMITE, HEAL, BARRAGE5, BARRAGE3WIDE, BARRAGE3
     }
 
 }

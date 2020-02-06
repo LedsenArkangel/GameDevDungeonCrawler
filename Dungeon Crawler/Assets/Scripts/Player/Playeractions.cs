@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +9,7 @@ public class Playeractions : MonoBehaviour
     public float potionAttackManaCost = 10f;
 
     [Header("Spells")]
-    public GameObject[] spells;
+    public List<GameObject> spells;
 
     [Header("Spell display")]
     public Text spellNameTextDisplay;
@@ -39,14 +38,14 @@ public class Playeractions : MonoBehaviour
         //swap weapons
         if (Input.GetKeyDown("e"))
         {
-            if (equippedSpell < spells.Length -1) equippedSpell++;
+            if (equippedSpell < spells.Count -1) equippedSpell++;
             else equippedSpell = 0;
             UpdateSpellDisplay();
         }
         if (Input.GetKeyDown("q"))
         {
             if (equippedSpell > 0) equippedSpell--;
-            else equippedSpell = spells.Length - 1;
+            else equippedSpell = spells.Count - 1;
             UpdateSpellDisplay();
         }
 
@@ -108,5 +107,10 @@ public class Playeractions : MonoBehaviour
             int maxAmmoDisplayValue = Mathf.RoundToInt(spells[equippedSpell].GetComponent<SpellBase>().maxAmmo);
             spellAmmoDisplay.text = "" + currentAmmoDisplayValue + " / " + maxAmmoDisplayValue;
         }
+    }
+
+    public void LearnSpell(GameObject learnedSpell)
+    {
+        spells.Add(learnedSpell);
     }
 }

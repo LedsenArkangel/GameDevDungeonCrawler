@@ -69,12 +69,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   damage: 5
-  bounceAmount: 3
+  bounceAmount: 2
   lifeTime: 10
   type: 0
   damageType: 0
   afterMath: {fileID: 1886983479247097540, guid: 0e7180603d0e8074bbd390be241a127b,
     type: 3}
+  powerValue: 0
   explosionRadius: 2
   explosionDamage: 7
   explosionForce: 300
@@ -170,8 +171,8 @@ SpriteRenderer:
   m_SortingLayerID: -564376843
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 78e2de539af866149a805442bfec2706, type: 3}
-  m_Color: {r: 0.023665346, g: 0, b: 0.2924528, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 8cf429fc5f2a027409c322443fe815ca, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
