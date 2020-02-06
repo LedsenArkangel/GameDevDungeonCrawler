@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3951772368845441095}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4, y: 5, z: 0}
-  m_LocalScale: {x: 1.7, y: 1.7, z: 2}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 2}
   m_Children:
   - {fileID: 152908639250018014}
   - {fileID: 4387126023825309798}
@@ -51,11 +51,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 10
   attackDamage: 10
-  attacksPerSecond: 0.3
-  attackType: 1
-  attackProjectile: {fileID: 2163941253363409920, guid: 318e57108b70e074489d1aec5ba9a940,
+  attacksPerSecond: 0.4
+  attackType: 3
+  attackProjectile: {fileID: 2163941253363409920, guid: 178c38b78b040024c877864eb80b0ab9,
     type: 3}
   attackEffect: {fileID: 0}
+  attackProjectile2: {fileID: 2163941253363409920, guid: bf123f0a58956bd418768317695f70f2,
+    type: 3}
+  attackProjectile3: {fileID: 2163941253363409920, guid: 574da7c472db51a468ffc13c4e2fed1d,
+    type: 3}
+  firePool: {fileID: 4479369955905507204, guid: 69b3bd38775bd994980ea72c836a7216,
+    type: 3}
 --- !u!114 &2583334734144394675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 332771a80c99f094cb40f86261bc7c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 200
+  maxHp: 1000
   lifebarBackground: {fileID: 6542334502538426011}
   lifebarForeground: {fileID: 2821137857478098209}
   deathVisualEffect: {fileID: 0}
@@ -85,9 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f70dd3311f929a34f83378bc76597b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpotSearchRate: 5
-  teleportRate: 18
-  movementSpeed: 1
+  movementSpotSearchRate: 2
+  teleportRate: 5.4
+  movementSpeed: 1.6
   teleportEffect: {fileID: 135030593720171309, guid: bff233c2ea7a063459677a7181f8e0d2,
     type: 3}
 --- !u!50 &3866720859559573097

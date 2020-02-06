@@ -97,6 +97,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 10
+  canDropSpell: 1
+  spellBook: {fileID: 445438155079271959, guid: f3493af163ef01949bcbef3811205b58,
+    type: 3}
+  dropChance: 0.15
   explodes: 1
   explosionRadius: 2
   explosionDamage: 5

@@ -46,7 +46,7 @@ public class SpellBase : MonoBehaviour
             {
                 case Spell.PROJECTILE:
                     GameObject projectileObject = Instantiate(projectile, player.transform.position, Quaternion.identity);
-                    projectileObject.GetComponent<ProjectileScript>().initializeProjectile(getDirectionFromMouseToPlayer(player), player.GetComponent<Collider2D>());
+                    projectileObject.GetComponent<ProjectileScript>().initializeProjectile(getDirectionFromPlayerToMouse(player), player.GetComponent<Collider2D>());
                     break;
                 case Spell.HEAL:
                     player.GetComponent<Playerstats>().heal(10);
@@ -57,31 +57,52 @@ public class SpellBase : MonoBehaviour
                     break;
                 case Spell.BARRAGE5:
                     GameObject projectileObject1 = Instantiate(projectile, player.transform.position, Quaternion.identity);
-                    projectileObject1.GetComponent<ProjectileScript>().initializeProjectile(getDirectionFromMouseToPlayer(player), player.GetComponent<Collider2D>());
+                    projectileObject1.GetComponent<ProjectileScript>().initializeProjectile(getDirectionFromPlayerToMouse(player), player.GetComponent<Collider2D>());
                     GameObject projectileObject2 = Instantiate(projectile, player.transform.position, Quaternion.identity);
-                    projectileObject2.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromMouseToPlayer(player), 45), player.GetComponent<Collider2D>());
+                    projectileObject2.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromPlayerToMouse(player), 45), player.GetComponent<Collider2D>());
                     GameObject projectileObject3 = Instantiate(projectile, player.transform.position, Quaternion.identity);
-                    projectileObject3.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromMouseToPlayer(player), -45), player.GetComponent<Collider2D>());
+                    projectileObject3.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromPlayerToMouse(player), -45), player.GetComponent<Collider2D>());
                     GameObject projectileObject4 = Instantiate(projectile, player.transform.position, Quaternion.identity);
-                    projectileObject4.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromMouseToPlayer(player), 22), player.GetComponent<Collider2D>());
+                    projectileObject4.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromPlayerToMouse(player), 22), player.GetComponent<Collider2D>());
                     GameObject projectileObject5 = Instantiate(projectile, player.transform.position, Quaternion.identity);
-                    projectileObject5.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromMouseToPlayer(player), -22), player.GetComponent<Collider2D>());
+                    projectileObject5.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromPlayerToMouse(player), -22), player.GetComponent<Collider2D>());
                     break;
                 case Spell.BARRAGE3WIDE:
                     GameObject projectileObjectFirst = Instantiate(projectile, player.transform.position, Quaternion.identity);
-                    projectileObjectFirst.GetComponent<ProjectileScript>().initializeProjectile(getDirectionFromMouseToPlayer(player), player.GetComponent<Collider2D>());
+                    projectileObjectFirst.GetComponent<ProjectileScript>().initializeProjectile(getDirectionFromPlayerToMouse(player), player.GetComponent<Collider2D>());
                     GameObject projectileObjectSecond = Instantiate(projectile, player.transform.position, Quaternion.identity);
-                    projectileObjectSecond.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromMouseToPlayer(player), 45), player.GetComponent<Collider2D>());
+                    projectileObjectSecond.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromPlayerToMouse(player), 45), player.GetComponent<Collider2D>());
                     GameObject projectileObjectThird = Instantiate(projectile, player.transform.position, Quaternion.identity);
-                    projectileObjectThird.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromMouseToPlayer(player), -45), player.GetComponent<Collider2D>());
+                    projectileObjectThird.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromPlayerToMouse(player), -45), player.GetComponent<Collider2D>());
                     break;
                 case Spell.BARRAGE3:
                     GameObject projectileObjectOne = Instantiate(projectile, player.transform.position, Quaternion.identity);
-                    projectileObjectOne.GetComponent<ProjectileScript>().initializeProjectile(getDirectionFromMouseToPlayer(player), player.GetComponent<Collider2D>());
+                    projectileObjectOne.GetComponent<ProjectileScript>().initializeProjectile(getDirectionFromPlayerToMouse(player), player.GetComponent<Collider2D>());
                     GameObject projectileObjectTwo = Instantiate(projectile, player.transform.position, Quaternion.identity);
-                    projectileObjectTwo.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromMouseToPlayer(player), 22), player.GetComponent<Collider2D>());
+                    projectileObjectTwo.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromPlayerToMouse(player), 22), player.GetComponent<Collider2D>());
                     GameObject projectileObjectThree = Instantiate(projectile, player.transform.position, Quaternion.identity);
-                    projectileObjectThree.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromMouseToPlayer(player), -22), player.GetComponent<Collider2D>());
+                    projectileObjectThree.GetComponent<ProjectileScript>().initializeProjectile(RotateVector(getDirectionFromPlayerToMouse(player), -22), player.GetComponent<Collider2D>());
+                    break;
+                case Spell.FOURDIRECTIONALNOVA:
+                    GameObject novaObjectOne = Instantiate(projectile, player.transform.position, Quaternion.identity);
+                    novaObjectOne.GetComponent<ProjectileScript>().initializeProjectile(Vector2.up, player.GetComponent<Collider2D>());
+                    GameObject novaObjectTwo = Instantiate(projectile, player.transform.position, Quaternion.identity);
+                    novaObjectTwo.GetComponent<ProjectileScript>().initializeProjectile(Vector2.down, player.GetComponent<Collider2D>());
+                    GameObject novaObjectThree = Instantiate(projectile, player.transform.position, Quaternion.identity);
+                    novaObjectThree.GetComponent<ProjectileScript>().initializeProjectile(Vector2.left, player.GetComponent<Collider2D>());
+                    GameObject novaObjectFour = Instantiate(projectile, player.transform.position, Quaternion.identity);
+                    novaObjectFour.GetComponent<ProjectileScript>().initializeProjectile(Vector2.right, player.GetComponent<Collider2D>());
+                    break;
+                case Spell.FOURDIRECTIONALPOINT:
+                    Vector2 pos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+                    GameObject novaObject1 = Instantiate(projectile, pos, Quaternion.identity);
+                    novaObject1.GetComponent<ProjectileScript>().initializeProjectile(Vector2.up, player.GetComponent<Collider2D>());
+                    GameObject novaObject2 = Instantiate(projectile, pos, Quaternion.identity);
+                    novaObject2.GetComponent<ProjectileScript>().initializeProjectile(Vector2.down, player.GetComponent<Collider2D>());
+                    GameObject novaObject3 = Instantiate(projectile, pos, Quaternion.identity);
+                    novaObject3.GetComponent<ProjectileScript>().initializeProjectile(Vector2.left, player.GetComponent<Collider2D>());
+                    GameObject novaObject4 = Instantiate(projectile, pos, Quaternion.identity);
+                    novaObject4.GetComponent<ProjectileScript>().initializeProjectile(Vector2.right, player.GetComponent<Collider2D>());
                     break;
                 default:
                     Debug.Log("spell not defined");
@@ -91,7 +112,7 @@ public class SpellBase : MonoBehaviour
         }
     }
 
-    Vector2 getDirectionFromMouseToPlayer(GameObject player)
+    Vector2 getDirectionFromPlayerToMouse(GameObject player)
     {
         Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         positionMouse.z = transform.position.z;
@@ -113,7 +134,7 @@ public class SpellBase : MonoBehaviour
     
     public enum Spell
     {
-        UNDEFINED, PROJECTILE, SMITE, HEAL, BARRAGE5, BARRAGE3WIDE, BARRAGE3
+        UNDEFINED, PROJECTILE, SMITE, HEAL, BARRAGE5, BARRAGE3WIDE, BARRAGE3, FOURDIRECTIONALNOVA, FOURDIRECTIONALPOINT
     }
 
 }

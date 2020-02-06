@@ -60,4 +60,9 @@ public class Enemystats : MonoBehaviour
         if (bloodPool != null) Instantiate(bloodPool, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
+
+    public float getCurrentHp()
+    {
+        return currentHp;
+    }
 }

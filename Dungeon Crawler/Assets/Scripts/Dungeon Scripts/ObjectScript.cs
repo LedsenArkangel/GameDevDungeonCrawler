@@ -7,6 +7,11 @@ public class ObjectScript : MonoBehaviour
     [Header("Main stats")]
     public float maxHp = 100f;
 
+    [Header("Spell book drop")]
+    public bool canDropSpell = false;
+    public GameObject spellBook;
+    public float dropChance = 0.5f;
+
     [Header("Explosive attributes")]
     public bool explodes = false;
     public float explosionRadius = 2f;
@@ -66,6 +71,10 @@ public class ObjectScript : MonoBehaviour
     {
         if (explodes) Explode();
         if(aftermathObject != null) Instantiate(aftermathObject, transform.position, Quaternion.identity);
+        if(canDropSpell && spellBook != null)
+        {
+            if(Random.Range(0f,1f)<=dropChance)Instantiate(spellBook, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 }

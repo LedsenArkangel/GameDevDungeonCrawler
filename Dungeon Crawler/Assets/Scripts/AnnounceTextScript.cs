@@ -23,8 +23,10 @@ public class AnnounceTextScript : MonoBehaviour
         }
     }
 
-    public void announce(string text)
+    public void announce(string text, float fadeDelay, Color color)
     {
-        delaytimer = delay;
+        delaytimer = fadeDelay;
+        GetComponent<Text>().text = text;
+        GetComponent<Text>().color = color;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Pathfinding;
 
 public class DungeonRoomGenerator : MonoBehaviour
@@ -12,11 +13,13 @@ public class DungeonRoomGenerator : MonoBehaviour
     public int level=0;
     public int firstBossRoom = 10;
     public int finalLevel = 10;
+    public Text roomLevelText;
     float roomOffSetPerLevel=15.25f;
 
     public void GenerateNextRoom()
     {
         level++;
+        roomLevelText.text = "Level: " + level;
         GameObject room;
         //end game if final level
         if (level == finalLevel + 1) gameOver.GetComponent<GameoverScript>().GameOver(false);

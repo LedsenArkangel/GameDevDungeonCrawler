@@ -58,11 +58,16 @@ public class Necromancermovement : MonoBehaviour
     void teleport()
     {
         if (teleportEffect != null) Instantiate(teleportEffect, transform.position, Quaternion.identity);
-        transform.position = new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 2f, distanceToWestWall - 2f), roomCenter.y + Random.Range(-distanceToNorthWall + 2f, distanceToNorthWall - 2f));
+        transform.position = getNewSpotInRoom();
     }
 
     void moveTowardsNewSpot()
     {
-        moveTarget = new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 2f, distanceToWestWall - 2f), roomCenter.y + Random.Range(-distanceToNorthWall + 2f, distanceToNorthWall - 2f));
+        moveTarget = getNewSpotInRoom();
+    }
+
+    public Vector2 getNewSpotInRoom()
+    {
+        return new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 2f, distanceToWestWall - 2f), roomCenter.y + Random.Range(-distanceToNorthWall + 2f, distanceToNorthWall - 2f));
     }
 }

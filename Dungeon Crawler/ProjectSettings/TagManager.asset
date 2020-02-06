@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - RoomGenerator
+  - Announcer
   layers:
   - Default
   - TransparentFX

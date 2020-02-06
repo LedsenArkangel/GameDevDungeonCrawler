@@ -16,6 +16,7 @@ public class SpellPickup : MonoBehaviour
         if (collision.gameObject.GetComponent<Playeractions>() != null)
         {
             collision.gameObject.GetComponent<Playeractions>().LearnSpell(spell);
+            if (GameObject.FindGameObjectWithTag("Announcer") != null) GameObject.FindGameObjectWithTag("Announcer").GetComponent<AnnounceTextScript>().announce("Spell learned", 2.5f, Color.blue);
             Destroy(gameObject);
         }
     }
@@ -29,21 +30,31 @@ public class SpellPickup : MonoBehaviour
         //projectile, or barrage(reduces balance)?
         float rng1 = Random.Range(0,100);
         SpellBase.Spell generatedSpellType = SpellBase.Spell.PROJECTILE;
-        if(rng1 <= 75)
+        if(rng1 <= 55)
         {
             generatedSpellType = SpellBase.Spell.PROJECTILE;
         }
-        else if (rng1 <= 85)
+        else if (rng1 <= 60)
+        {
+            generatedSpellType = SpellBase.Spell.FOURDIRECTIONALNOVA;
+            powerBudget -= 2f;
+        }
+        else if (rng1 <= 65)
+        {
+            generatedSpellType = SpellBase.Spell.FOURDIRECTIONALPOINT;
+            powerBudget -= 6f;
+        }
+        else if (rng1 <= 80)
         {
             generatedSpellType = SpellBase.Spell.BARRAGE3;
             powerBudget -= 5f;
         }
-        else if (rng1 <= 95)
+        else if (rng1 <= 90)
         {
             generatedSpellType = SpellBase.Spell.BARRAGE3WIDE;
             powerBudget -= 4f;
         }
-        else if (rng1 > 0)
+        else
         {
             generatedSpellType = SpellBase.Spell.BARRAGE5;
             powerBudget -= 7f;
@@ -60,43 +71,47 @@ public class SpellPickup : MonoBehaviour
         //generate name accordingly
         string generatedSpellName;
         generatedSpellName = "custom spell";
-
-        //depending on ammo, reduce or increase balance
+        
+        //randomize ammo
         float generatedMaxAmmo = 4;
         float generatedAmmoRegenPerSecond = 2f;
-
         float rng2 = Random.Range(0, 100);
         if (rng2 <= 25)
         {
-            if(powerBudget>1)generatedMaxAmmo = powerBudget;
-            else generatedMaxAmmo = 1;
+            generatedMaxAmmo = Mathf.Max(powerBudget, 1);
 
-            generatedAmmoRegenPerSecond = 1f / powerBudget;
+            generatedAmmoRegenPerSecond = Mathf.Max(powerBudget,2f) / 6f;
         }
         else if (rng2 <= 50)
         {
             generatedMaxAmmo = 2;
-            generatedAmmoRegenPerSecond = 0.5f;
+            generatedAmmoRegenPerSecond = 0.8f;
             powerBudget += 2;
         }
-        else if (rng2 <= 75)
+        else if (rng2 <= 60)
         {
-            if (powerBudget > 2)
+            generatedMaxAmmo = 4;
+            generatedAmmoRegenPerSecond = 4f / powerBudget;
+            powerBudget += 2;
+        }
+        else if (rng2 <= 80)
+        {
+            if (powerBudget > 3)
             {
-                generatedMaxAmmo = powerBudget * 2 - 3;
-                generatedAmmoRegenPerSecond = 0.25f;
+                generatedMaxAmmo = powerBudget * 2 - 4;
+                generatedAmmoRegenPerSecond = 0.3f;
             }
             else
             {
-                generatedMaxAmmo = 1;
-                generatedAmmoRegenPerSecond = 0.3f;
+                generatedMaxAmmo = 2;
+                generatedAmmoRegenPerSecond = 0.45f;
             }
         }
-        else if (rng2 > 0)
+        else
         {
-            generatedMaxAmmo = 4;
-            generatedAmmoRegenPerSecond = 0.35f;
-            powerBudget -= 1f;
+            generatedMaxAmmo = Mathf.Min(powerBudget * 2,10f);
+            generatedAmmoRegenPerSecond = 0.5f;
+            powerBudget -= 2f;
         }
 
         //mana cost depends on power budget
