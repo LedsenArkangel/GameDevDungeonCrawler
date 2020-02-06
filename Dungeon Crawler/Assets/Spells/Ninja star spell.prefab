@@ -46,7 +46,7 @@ MonoBehaviour:
   spellIcon: {fileID: 21300000, guid: 52b52d788e414fb48a84d240b116a48a, type: 3}
   spellName: ninja star
   manaCost: 0
-  spell: 1
+  spellType: 1
   projectile: {fileID: 2163941253363409920, guid: 7ae575f008fb9dd4b8b707f508d991ac,
     type: 3}
   maxAmmo: 5
