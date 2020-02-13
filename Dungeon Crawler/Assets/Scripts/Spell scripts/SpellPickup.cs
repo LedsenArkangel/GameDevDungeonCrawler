@@ -98,7 +98,7 @@ public class SpellPickup : MonoBehaviour
         {
             if (powerBudget > 3)
             {
-                generatedMaxAmmo = powerBudget * 2 - 4;
+                generatedMaxAmmo = Mathf.Max(powerBudget * 2 - 4, 1);
                 generatedAmmoRegenPerSecond = 0.3f;
             }
             else
@@ -109,7 +109,7 @@ public class SpellPickup : MonoBehaviour
         }
         else
         {
-            generatedMaxAmmo = Mathf.Min(powerBudget * 2,10f);
+            generatedMaxAmmo = Mathf.Min(Mathf.Max(powerBudget * 2,6f),10f);
             generatedAmmoRegenPerSecond = 0.5f;
             powerBudget -= 2f;
         }

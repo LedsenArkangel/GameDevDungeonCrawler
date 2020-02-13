@@ -10,6 +10,15 @@ public class AnnounceTextScript : MonoBehaviour
 
     private float delaytimer = 5f;
 
+    void Start()
+    {
+        Invoke("tutorialAnnounce1", 5f);
+        Invoke("tutorialAnnounce2", 10f);
+        Invoke("tutorialAnnounce3", 15f);
+        Invoke("tutorialAnnounce4", 20f);
+    }
+
+
     // start fading text after delay
     void Update()
     {
@@ -28,5 +37,25 @@ public class AnnounceTextScript : MonoBehaviour
         delaytimer = fadeDelay;
         GetComponent<Text>().text = text;
         GetComponent<Text>().color = color;
+    }
+
+    public void tutorialAnnounce1()
+    {
+        announce("use WASD to move", 5f, Color.red);
+    }
+
+    public void tutorialAnnounce2()
+    {
+        announce("mouse to aim and cast a spell", 5f, Color.red);
+    }
+
+    public void tutorialAnnounce3()
+    {
+        announce("use Q and E to switch spells", 5f, Color.red);
+    }
+
+    public void tutorialAnnounce4()
+    {
+        announce("Good luck, castermind", 5f, Color.red);
     }
 }

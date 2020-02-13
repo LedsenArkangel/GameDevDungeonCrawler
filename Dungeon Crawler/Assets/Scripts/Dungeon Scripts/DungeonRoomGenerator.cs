@@ -15,14 +15,15 @@ public class DungeonRoomGenerator : MonoBehaviour
     public int finalLevel = 10;
     public Text roomLevelText;
     float roomOffSetPerLevel=15.25f;
+    public bool endless = false;
 
     public void GenerateNextRoom()
     {
         level++;
         roomLevelText.text = "Level: " + level;
         GameObject room;
-        //end game if final level
-        if (level == finalLevel + 1) gameOver.GetComponent<GameoverScript>().GameOver(false);
+        //end game if final level and not endless
+        if (level == finalLevel + 1 && !endless) gameOver.GetComponent<GameoverScript>().GameOver(false);
         //else generate new room
         else
         {

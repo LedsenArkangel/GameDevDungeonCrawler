@@ -49,17 +49,6 @@ public class PoolScript : MonoBehaviour
         {
             if (type == PoolType.FIRE || type == PoolType.ACID) collision.gameObject.GetComponent<ObjectScript>().TakeDamage(damagePerSecond * Time.deltaTime, damageType);
         }
-        //pool in pool
-        //(does not work yet since pool colliders are triggers)
-        else if (collision.gameObject.GetComponent<PoolScript>() != null)
-        {
-            //fire spreads over oil
-            if (type == PoolType.FIRE && collision.gameObject.GetComponent<PoolScript>().type == PoolType.OIL)
-            {
-                collision.gameObject.GetComponent<PoolScript>().afterMathSpawn();
-                Destroy(collision.gameObject);
-            }
-        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -119,8 +108,22 @@ public class PoolScript : MonoBehaviour
                 collider.gameObject.GetComponent<ObjectScript>().TakeDamage(explosionDamage, damageType);
                 if (collider.gameObject.GetComponent<Rigidbody2D>() != null) collider.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(collider.transform.position.x - transform.position.x, collider.transform.position.y - transform.position.y).normalized * explosionForce);
             }
+            if(collider.gameObject.GetComponent<PoolScript>() != null)
+            {
+                collider.gameObject.GetComponent<PoolScript>().ignite();
+            }
         }
         afterMathSpawn();
+    }
+
+    public void ignite()
+    {
+        if (type == PoolType.OIL || type == PoolType.ACID)
+        {
+            type = PoolType.BASIC;
+            Explode();
+            Destroy(gameObject);
+        }
     }
 
     public void afterMathSpawn()
@@ -130,6 +133,6 @@ public class PoolScript : MonoBehaviour
 
     public enum PoolType
     {
-        BLOOD, OIL, FIRE, ACID, WATER
+        BLOOD, OIL, FIRE, ACID, WATER, BASIC
     }
 }
