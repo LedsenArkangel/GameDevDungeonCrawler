@@ -13554,8 +13554,8 @@ MonoBehaviour:
   pathFindingMesh: {fileID: 245203860}
   gameOver: {fileID: 1133710164}
   level: 0
-  firstBossRoom: 1
-  finalLevel: 1
+  firstBossRoom: 6
+  finalLevel: 6
   roomLevelText: {fileID: 1250994692}
   endless: 0
 --- !u!4 &1993102837
