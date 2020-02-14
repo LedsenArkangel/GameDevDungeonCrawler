@@ -117,8 +117,7 @@ public class SpellPickup : MonoBehaviour
         //mana cost depends on power budget
         float generatedManaCost=0f;
         generatedManaCost = Mathf.Max(0f,-powerBudget * 5f + 25);
-
-        //spell = new gameobject
+        
         spell = new GameObject();
         //attach new spellscript to spell
         spell.AddComponent<SpellBase>();

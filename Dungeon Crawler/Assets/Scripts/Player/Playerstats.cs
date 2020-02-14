@@ -19,6 +19,9 @@ public class Playerstats : MonoBehaviour
     [Header("Game over settings")]
     public GameObject gameOver;
 
+    [Header("Announcer settings")]
+    public GameObject announcer;
+
     private float currentHp = 100;
     private float currentMana = 100f;
 
@@ -46,6 +49,7 @@ public class Playerstats : MonoBehaviour
             currentMana -= cost;
             return true;
         }
+        if (announcer.GetComponent<AnnounceTextScript>() != null) announcer.GetComponent<AnnounceTextScript>().announce("Not enough mana",1.5f,Color.blue);
         return false;
     }
 

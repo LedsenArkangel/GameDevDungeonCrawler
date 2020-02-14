@@ -107,7 +107,6 @@ public class Enemyactionscript : MonoBehaviour
                 else
                 {
                     if (GetComponent<Necromancermovement>() != null) Instantiate(firePool, GetComponent<Necromancermovement>().getNewSpotInRoom(), Quaternion.identity);
-                    if (GetComponent<Necromancermovement>() != null) Instantiate(firePool, GetComponent<Necromancermovement>().getNewSpotInRoom(), Quaternion.identity);
                     if (phase2)
                     {
                         GameObject projectileOne = Instantiate(attackProjectile3, transform.position, Quaternion.identity);

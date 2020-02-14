@@ -7,6 +7,8 @@ public class Enemystats : MonoBehaviour
 {
     [Header("Main stats")]
     public float maxHp = 100f;
+    public DamageType weakness = DamageType.ARCANE;
+    public DamageType strenght = DamageType.ARCANE;
 
     [Header("Life bar")]
     public RectTransform lifebarBackground;
@@ -50,7 +52,10 @@ public class Enemystats : MonoBehaviour
 
     public void TakeDamage(float damage, DamageType damageType)
     {
-        currentHp -= damage;
+        if (damageType.Equals(weakness)) currentHp -= damage * 2;
+        else if (damageType.Equals(strenght)) currentHp -= damage * 0.5f;
+        else currentHp -= damage;
+
         if (currentHp < 0) die();
     }
 
