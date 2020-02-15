@@ -13,6 +13,7 @@ public class ProjectileScript : MonoBehaviour
     public DamageType damageType = DamageType.BASIC;
     public GameObject afterMath;
     public float powerValue=1f;
+    public string projectileName = "?";
 
     [Header("Explosive attributes")]
     public float explosionRadius = 2f;

@@ -76,6 +76,7 @@ MonoBehaviour:
   afterMath: {fileID: 1886983479247097540, guid: 0e7180603d0e8074bbd390be241a127b,
     type: 3}
   powerValue: 0
+  projectileName: oil potion
   explosionRadius: 2
   explosionDamage: 7
   explosionForce: 300

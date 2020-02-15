@@ -12,6 +12,12 @@ public class Enemyactionscript : MonoBehaviour
     public AttackType attackType = AttackType.MELEE;
     public GameObject attackProjectile;
 
+    [Header("Trail effects")]
+    public bool leavesTrail = false;
+    public GameObject trailEffect;
+    public float trailEffectCoolDown = 1f;
+    private float trailEffectCoolDownTimer = 1f;
+
     [Header("Visuals")]
     public GameObject attackEffect;
 
@@ -39,13 +45,20 @@ public class Enemyactionscript : MonoBehaviour
             attackCoolDown = 1f / attacksPerSecond;
             Attack(player);
         }
+        if (leavesTrail) {
+            if (trailEffectCoolDownTimer >= 0f) trailEffectCoolDownTimer -= Time.deltaTime;
+            DoTrailEffect(transform.position);
+        }
     }
 
     void Attack(GameObject target)
     {
         if(target.GetComponent<Playerstats>() != null)
         {
-            if(attackType.Equals(AttackType.MELEE))target.GetComponent<Playerstats>().TakeDamage(attackDamage);
+            if (attackType.Equals(AttackType.MELEE)) {
+                target.GetComponent<Playerstats>().TakeDamage(attackDamage);
+                if (attackEffect != null) Instantiate(attackEffect, target.transform.position, Quaternion.identity);
+            }
             if (attackType.Equals(AttackType.PROJECTILE))
             {
                 GameObject projectile = Instantiate(attackProjectile, transform.position, Quaternion.identity);
@@ -145,6 +158,15 @@ public class Enemyactionscript : MonoBehaviour
         v.x = (cos * tx) - (sin * ty);
         v.y = (sin * tx) + (cos * ty);
         return v;
+    }
+
+    void DoTrailEffect(Vector2 position)
+    {
+        if (trailEffectCoolDownTimer <= 0f)
+        {
+            trailEffectCoolDownTimer = trailEffectCoolDown;
+            if(trailEffect != null)Instantiate(trailEffect, position, Quaternion.identity);
+        }
     }
 
     public enum AttackType

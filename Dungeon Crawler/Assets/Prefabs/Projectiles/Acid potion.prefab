@@ -76,6 +76,7 @@ MonoBehaviour:
   afterMath: {fileID: 4479369955905507204, guid: 43ab319d3e3833645a876d4072f8320a,
     type: 3}
   powerValue: 5
+  projectileName: acid potion
   explosionRadius: 2
   explosionDamage: 5
   explosionForce: 300

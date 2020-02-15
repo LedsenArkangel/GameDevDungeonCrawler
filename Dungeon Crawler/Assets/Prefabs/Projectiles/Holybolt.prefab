@@ -179,6 +179,7 @@ MonoBehaviour:
   damageType: 5
   afterMath: {fileID: 0}
   powerValue: 3
+  projectileName: Holy bolt
   explosionRadius: 2
   explosionDamage: 15
   explosionForce: 100

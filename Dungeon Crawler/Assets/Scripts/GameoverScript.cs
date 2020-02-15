@@ -24,6 +24,15 @@ public class GameoverScript : MonoBehaviour
             gameOverButton.GetComponent<Image>().color = new Color(1, 0.92f, 0.016f, 1);
             endlessModeButton.gameObject.SetActive(true);
         }
+        else
+        {
+            //red
+            gameOverPanel.GetComponent<Image>().color = new Color(1f, 0f, 0f, 0.4f);
+            gameOverPanelText.color = new Color(1, 0f, 0f, 1);
+            gameOverPanelText.text = "YOU HAVE DIED";
+            gameOverButton.GetComponent<Image>().color = new Color(1, 0f, 0f, 1);
+            endlessModeButton.gameObject.SetActive(false);
+        }
         gameOverPanel.SetActive(true);
         Time.timeScale = 0f;
     }

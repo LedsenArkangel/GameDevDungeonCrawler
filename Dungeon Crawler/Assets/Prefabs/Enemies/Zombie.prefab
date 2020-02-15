@@ -378,12 +378,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 187be728f69cb534f9a48dae853dffed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 1.5
+  attackRange: 1.6
   attackDamage: 10
   attacksPerSecond: 1
   attackType: 0
   attackProjectile: {fileID: 0}
-  attackEffect: {fileID: 0}
+  attackEffect: {fileID: 8647442080009188857, guid: 38af93fe9b1187845adb8a7fb13f64f2,
+    type: 3}
+  attackProjectile2: {fileID: 0}
+  attackProjectile3: {fileID: 0}
+  firePool: {fileID: 0}
 --- !u!114 &4935015670075312506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,6 +401,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 25
+  weakness: 1
+  strenght: 0
   lifebarBackground: {fileID: 4935015669743790063}
   lifebarForeground: {fileID: 4935015668961771429}
   deathVisualEffect: {fileID: 135030593720171309, guid: ed787a098f4474a47bdbfc198c1e5fc0,

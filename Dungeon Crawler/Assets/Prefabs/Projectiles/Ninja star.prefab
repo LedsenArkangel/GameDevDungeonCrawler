@@ -101,6 +101,7 @@ MonoBehaviour:
   damageType: 0
   afterMath: {fileID: 0}
   powerValue: 0
+  projectileName: ninja star
   explosionRadius: 2
   explosionDamage: 15
   explosionForce: 10

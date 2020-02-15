@@ -179,6 +179,7 @@ MonoBehaviour:
   damageType: 1
   afterMath: {fileID: 0}
   powerValue: 4
+  projectileName: slow firebolt
   explosionRadius: 2
   explosionDamage: 15
   explosionForce: 200

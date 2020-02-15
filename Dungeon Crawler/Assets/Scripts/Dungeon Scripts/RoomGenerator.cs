@@ -6,6 +6,8 @@ public class RoomGenerator : MonoBehaviour
 {
     public GameObject zombie;
     public GameObject spider;
+    public GameObject fireZombie;
+    public GameObject oilZombie;
     public GameObject wraith;
     public GameObject boss;
     public GameObject wall;
@@ -27,7 +29,7 @@ public class RoomGenerator : MonoBehaviour
             float distanceToNorthWall = 7.5f;
             float distanceToWestWall = 7.5f;
 
-            int roomRng = Random.Range(0, 3); //Random.Range(0, 8);
+            int roomRng = Random.Range(0, 4); //Random.Range(0, 8);
 
             switch (roomRng)
             {
@@ -91,7 +93,7 @@ public class RoomGenerator : MonoBehaviour
                     break;
             }
 
-            int enemyRng = Random.Range(0, 3); //Random.Range(0, 8);
+            int enemyRng = Random.Range(0, 5); //Random.Range(0, 8);
 
             switch (roomRng)
             {
@@ -125,6 +127,39 @@ public class RoomGenerator : MonoBehaviour
                     for (int i = 0; i < amountOfWraiths; i++)
                     {
                         Instantiate(wraith, new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 1f, distanceToWestWall - 1f), roomCenter.y + Random.Range(-distanceToNorthWall + 1f, distanceToNorthWall - 1f)), Quaternion.identity);
+                    }
+                    break;
+                case 3:
+                    //generate X zombies and fire zombies
+                    int amountOfFireZombies = Random.Range(1, roomDifficulty + 1);
+                    for (int i = 0; i < amountOfFireZombies; i++)
+                    {
+                        Instantiate(fireZombie, new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 1f, distanceToWestWall - 1f), roomCenter.y + Random.Range(-distanceToNorthWall + 1f, distanceToNorthWall - 1f)), Quaternion.identity);
+                    }
+                    //generate X zombies
+                    int amountOfZombies3 = Random.Range(1, roomDifficulty + 2);
+                    for (int i = 0; i < amountOfZombies3; i++)
+                    {
+                        Instantiate(zombie, new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 1f, distanceToWestWall - 1f), roomCenter.y + Random.Range(-distanceToNorthWall + 1f, distanceToNorthWall - 1f)), Quaternion.identity);
+                    }
+                    break;
+                case 4:
+                    //generate X zombies, fire zombies and oil zombies
+                    int amountOfFireZombies2 = Random.Range(1, roomDifficulty);
+                    for (int i = 0; i < amountOfFireZombies2; i++)
+                    {
+                        Instantiate(fireZombie, new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 1f, distanceToWestWall - 1f), roomCenter.y + Random.Range(-distanceToNorthWall + 1f, distanceToNorthWall - 1f)), Quaternion.identity);
+                    }
+                    //generate X zombies
+                    int amountOfZombies4 = Random.Range(1, roomDifficulty);
+                    for (int i = 0; i < amountOfZombies4; i++)
+                    {
+                        Instantiate(zombie, new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 1f, distanceToWestWall - 1f), roomCenter.y + Random.Range(-distanceToNorthWall + 1f, distanceToNorthWall - 1f)), Quaternion.identity);
+                    }
+                    int amountOfOilZombies = Random.Range(1, roomDifficulty);
+                    for (int i = 0; i < amountOfOilZombies; i++)
+                    {
+                        Instantiate(oilZombie, new Vector2(roomCenter.x + Random.Range(-distanceToWestWall + 1f, distanceToWestWall - 1f), roomCenter.y + Random.Range(-distanceToNorthWall + 1f, distanceToNorthWall - 1f)), Quaternion.identity);
                     }
                     break;
                 default:

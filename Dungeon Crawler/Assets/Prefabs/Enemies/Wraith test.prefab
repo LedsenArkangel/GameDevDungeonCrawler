@@ -385,6 +385,9 @@ MonoBehaviour:
   attackProjectile: {fileID: 2163941253363409920, guid: 178c38b78b040024c877864eb80b0ab9,
     type: 3}
   attackEffect: {fileID: 0}
+  attackProjectile2: {fileID: 0}
+  attackProjectile3: {fileID: 0}
+  firePool: {fileID: 0}
 --- !u!114 &4935015670075312506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,7 +400,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 332771a80c99f094cb40f86261bc7c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 70
+  maxHp: 55
+  weakness: 6
+  strenght: 6
   lifebarBackground: {fileID: 4935015669743790063}
   lifebarForeground: {fileID: 4935015668961771429}
   deathVisualEffect: {fileID: 0}

@@ -75,6 +75,7 @@ MonoBehaviour:
   damageType: 1
   afterMath: {fileID: 0}
   powerValue: 3
+  projectileName: fire potion
   explosionRadius: 2
   explosionDamage: 7
   explosionForce: 300

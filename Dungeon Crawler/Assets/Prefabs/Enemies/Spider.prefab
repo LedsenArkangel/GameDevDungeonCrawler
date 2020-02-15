@@ -230,6 +230,9 @@ MonoBehaviour:
   attackProjectile: {fileID: 2163941253363409920, guid: 318e57108b70e074489d1aec5ba9a940,
     type: 3}
   attackEffect: {fileID: 0}
+  attackProjectile2: {fileID: 0}
+  attackProjectile3: {fileID: 0}
+  firePool: {fileID: 0}
 --- !u!114 &302167786759516306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 35
+  weakness: 5
+  strenght: 2
   lifebarBackground: {fileID: 302167787455712120}
   lifebarForeground: {fileID: 302167785827447187}
   deathVisualEffect: {fileID: 0}

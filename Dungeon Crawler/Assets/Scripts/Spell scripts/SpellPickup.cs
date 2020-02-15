@@ -30,39 +30,47 @@ public class SpellPickup : MonoBehaviour
         //projectile, or barrage(reduces balance)?
         float rng1 = Random.Range(0,100);
         SpellBase.Spell generatedSpellType = SpellBase.Spell.PROJECTILE;
+        string projectileTypeName = "";
         if(rng1 <= 55)
         {
             generatedSpellType = SpellBase.Spell.PROJECTILE;
+            projectileTypeName = "";
         }
         else if (rng1 <= 60)
         {
             generatedSpellType = SpellBase.Spell.FOURDIRECTIONALNOVA;
             powerBudget -= 2f;
+            projectileTypeName = "nova";
         }
         else if (rng1 <= 65)
         {
             generatedSpellType = SpellBase.Spell.FOURDIRECTIONALPOINT;
             powerBudget -= 6f;
+            projectileTypeName = "cross";
         }
         else if (rng1 <= 80)
         {
             generatedSpellType = SpellBase.Spell.BARRAGE3;
             powerBudget -= 5f;
+            projectileTypeName = "spray";
         }
         else if (rng1 <= 90)
         {
             generatedSpellType = SpellBase.Spell.BARRAGE3WIDE;
             powerBudget -= 4f;
+            projectileTypeName = "spray";
         }
         else
         {
             generatedSpellType = SpellBase.Spell.BARRAGE5;
             powerBudget -= 7f;
+            projectileTypeName = "barrage";
         }
 
         //depending on the projectile power, reduce balancing
         GameObject generatedProjectile = spellProjectiles[Random.Range(0,spellProjectiles.Length)];
         if (generatedProjectile.GetComponent<ProjectileScript>() != null) powerBudget -= generatedProjectile.GetComponent<ProjectileScript>().powerValue;
+        string projectileClassName = generatedProjectile.GetComponent<ProjectileScript>().projectileName;
 
         //use projectile sprite
         Sprite generatedSpellIcon;
@@ -70,7 +78,7 @@ public class SpellPickup : MonoBehaviour
 
         //generate name accordingly
         string generatedSpellName;
-        generatedSpellName = "custom spell";
+        generatedSpellName = projectileClassName + " " + projectileTypeName;
         
         //randomize ammo
         float generatedMaxAmmo = 4;

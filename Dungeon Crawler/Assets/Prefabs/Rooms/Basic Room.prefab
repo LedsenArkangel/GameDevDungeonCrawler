@@ -716,6 +716,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombie: {fileID: 4935015670075312507, guid: e51d97f4fbb2699408387092e8ce6851, type: 3}
   spider: {fileID: 302167786759516316, guid: d2263edc9b680124b8ab0441d9fd25d5, type: 3}
+  fireZombie: {fileID: 4935015670075312507, guid: cff74da2779773b4c909cc299ee68589,
+    type: 3}
+  oilZombie: {fileID: 4935015670075312507, guid: 3503a990017aaa14abf83c76959b7837,
+    type: 3}
   wraith: {fileID: 4935015670075312507, guid: f33790afd3af7c745ba4e9f17894f0e9, type: 3}
   boss: {fileID: 302167786759516316, guid: d2263edc9b680124b8ab0441d9fd25d5, type: 3}
   wall: {fileID: 9126502015539306847, guid: f09c5ec5656fb5240b7f385bf4ee9444, type: 3}
@@ -727,4 +731,5 @@ MonoBehaviour:
   - {fileID: 7333877801799204232, guid: bc6d54fc4d420cb40b96132dcd5de9bc, type: 3}
   - {fileID: 7333877801799204232, guid: 36ce1cdc2e271114aaf3d50703ffae8c, type: 3}
   - {fileID: 7333877801799204232, guid: 84cbd166c76632f4ab8a96e59ee76f3f, type: 3}
+  - {fileID: 7333877801799204232, guid: bee81916d088d3e4483c304997b43483, type: 3}
   type: 0

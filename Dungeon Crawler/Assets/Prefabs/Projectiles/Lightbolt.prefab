@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3628227742534187579}
   - component: {fileID: 1295280879268784231}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,9 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.8
+  m_FalloffIntensity: 0.7
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.2
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000b536aa85f996d00ec39d52fc513e8b8ab19407dd97c276c8f54a5cde3593d486918e55e8a90927f6
   m_LightCookieSprite: {fileID: 0}
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
-  m_PointLightOuterRadius: 7
+  m_PointLightOuterRadius: 8
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -81,7 +81,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6925674670852718844}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Rotate axis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,8 +114,8 @@ GameObject:
   - component: {fileID: 5961602871067761795}
   - component: {fileID: 1814087024368933829}
   - component: {fileID: 6230626548679601870}
-  - component: {fileID: 9090149897255002194}
-  m_Layer: 12
+  - component: {fileID: 5192471403753794116}
+  m_Layer: 14
   m_Name: Lightbolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,14 +171,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7806778b61148314c92a1ed72a4c9d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2.5
   damage: 5
   bounceAmount: 3
-  lifeTime: 30
+  lifeTime: 10
   type: 0
   damageType: 5
   afterMath: {fileID: 0}
   powerValue: 0
+  projectileName: light
   explosionRadius: 2
   explosionDamage: 15
   explosionForce: 100
@@ -188,7 +189,7 @@ MonoBehaviour:
   rotateSpeed: 80
   destroyEffect: {fileID: 0}
   hasPointDirection: 0
---- !u!58 &9090149897255002194
+--- !u!58 &5192471403753794116
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,13 +198,13 @@ CircleCollider2D:
   m_GameObject: {fileID: 2163941253363409920}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: cd4d9903839123045be720b4a54d4256, type: 2}
-  m_IsTrigger: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.8
 --- !u!1 &5758812500609435429
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4790547001293315824}
   - component: {fileID: 6328374655606496328}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Firebolt Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

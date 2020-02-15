@@ -105,6 +105,8 @@ MonoBehaviour:
   type: 0
   damageType: 3
   afterMath: {fileID: 0}
+  powerValue: 1
+  projectileName: frostbolt
   explosionRadius: 2
   explosionDamage: 15
   explosionForce: 10
