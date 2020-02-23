@@ -93,8 +93,7 @@ public class RoomGenerator : MonoBehaviour
                     break;
             }
 
-            //int enemyRng = Random.Range(0, 5); //Random.Range(0, 8);
-            int enemyRng = 1;
+            int enemyRng = Random.Range(0, 5); //Random.Range(0, 8);
 
             switch (enemyRng)
             {
