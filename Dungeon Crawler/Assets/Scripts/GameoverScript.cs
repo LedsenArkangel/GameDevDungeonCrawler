@@ -27,10 +27,10 @@ public class GameoverScript : MonoBehaviour
         else
         {
             //red
-            gameOverPanel.GetComponent<Image>().color = new Color(1f, 0f, 0f, 0.4f);
-            gameOverPanelText.color = new Color(1, 0f, 0f, 1);
+            gameOverPanel.GetComponent<Image>().color = new Color(0.2242566f, 0.01966893f, 0.3207547f, 0.4f);
+            gameOverPanelText.color = new Color(0.6024374f, 0.01054644f, 0.745283f, 1f);
             gameOverPanelText.text = "YOU HAVE DIED";
-            gameOverButton.GetComponent<Image>().color = new Color(1, 0f, 0f, 1);
+            gameOverButton.GetComponent<Image>().color = new Color(0.6024374f, 0.01054644f, 0.745283f, 1f);
             endlessModeButton.gameObject.SetActive(false);
         }
         gameOverPanel.SetActive(true);

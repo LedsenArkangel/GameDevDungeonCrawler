@@ -41,21 +41,21 @@ public class AnnounceTextScript : MonoBehaviour
 
     public void tutorialAnnounce1()
     {
-        announce("use WASD to move", 5f, Color.red);
+        announce("use WASD to move", 5f, new Color(0.2755886f, 0.02790139f, 0.5377358f, 1f));
     }
 
     public void tutorialAnnounce2()
     {
-        announce("mouse to aim and cast a spell", 5f, Color.red);
+        announce("mouse to aim and cast a spell", 5f, new Color(0.2755886f, 0.02790139f, 0.5377358f, 1f));
     }
 
     public void tutorialAnnounce3()
     {
-        announce("use Q and E to switch spells", 5f, Color.red);
+        announce("use Q and E to switch spells", 5f, new Color(0.2755886f, 0.02790139f, 0.5377358f, 1f));
     }
 
     public void tutorialAnnounce4()
     {
-        announce("Good luck, castermind", 5f, Color.red);
+        announce("Good luck, castermind", 5f, new Color(0.2755886f, 0.02790139f, 0.5377358f, 1f)); 
     }
 }
