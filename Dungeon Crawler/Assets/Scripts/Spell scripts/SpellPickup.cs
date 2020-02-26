@@ -4,6 +4,7 @@ public class SpellPickup : MonoBehaviour
 {
     public GameObject[] spellProjectiles;
     public GameObject spell;
+    public GameObject castEffect;
 
     void Start()
     {
@@ -129,7 +130,7 @@ public class SpellPickup : MonoBehaviour
         spell = new GameObject();
         //attach new spellscript to spell
         spell.AddComponent<SpellBase>();
-        spell.GetComponent<SpellBase>().EditSpellBase(generatedSpellIcon, generatedSpellName, generatedManaCost, generatedSpellType, generatedProjectile, generatedMaxAmmo, generatedAmmoRegenPerSecond); ;
+        spell.GetComponent<SpellBase>().EditSpellBase(generatedSpellIcon, generatedSpellName, generatedManaCost, generatedSpellType, generatedProjectile, generatedMaxAmmo, generatedAmmoRegenPerSecond, castEffect); ;
     }
     
 }

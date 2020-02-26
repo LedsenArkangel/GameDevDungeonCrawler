@@ -102,6 +102,8 @@ MonoBehaviour:
   - {fileID: 2163941253363409920, guid: ccb99edeecd77b44f9be76ccb2e53798, type: 3}
   - {fileID: 2163941253363409920, guid: b280f3695149de8409667ca3456dac52, type: 3}
   spell: {fileID: 0}
+  castEffect: {fileID: 135030593720171309, guid: 2bf5db6bb42edeb42b7a5488287febcd,
+    type: 3}
 --- !u!61 &4178827308281154342
 BoxCollider2D:
   m_ObjectHideFlags: 0

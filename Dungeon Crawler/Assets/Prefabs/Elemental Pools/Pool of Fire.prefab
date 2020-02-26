@@ -4889,7 +4889,8 @@ MonoBehaviour:
   explosionRadius: 2
   explosionDamage: 15
   explosionForce: 10
-  explosionEffect: {fileID: 0}
+  explosionEffect: {fileID: 135030593720171309, guid: ae3549a2dc4effb44b9e832c4f4b92bc,
+    type: 3}
   interactsWithElements: 1
   afterMath: {fileID: 1886983479247097540, guid: f4313a13357c812488e7ed3dde7f3156,
     type: 3}

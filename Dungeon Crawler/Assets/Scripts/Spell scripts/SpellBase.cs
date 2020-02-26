@@ -19,9 +19,9 @@ public class SpellBase : MonoBehaviour
     [Header("Visual effects")]
     public GameObject spellUseEffectPrimary;
     public GameObject spellUseEffectSecondary;
-    public GameObject spellUseEffectSTetriary;
+    public GameObject castEffect;
 
-    public void EditSpellBase(Sprite spellIcon, string spellName, float manaCost, Spell spellType, GameObject projectile, float maxAmmo, float ammoRegenPerSecond)
+    public void EditSpellBase(Sprite spellIcon, string spellName, float manaCost, Spell spellType, GameObject projectile, float maxAmmo, float ammoRegenPerSecond, GameObject castEffect)
     {
         this.spellIcon = spellIcon;
         this.spellName = spellName;
@@ -31,6 +31,7 @@ public class SpellBase : MonoBehaviour
         this.maxAmmo = maxAmmo;
         currentAmmo = maxAmmo;
         this.ammoRegenPerSecond = ammoRegenPerSecond;
+        this.castEffect = castEffect;
     }
 
     public void useSpell(GameObject player)
@@ -41,6 +42,7 @@ public class SpellBase : MonoBehaviour
         if(player.GetComponent<Playerstats>().useMana(manaCost))
         {
             currentAmmo -= 1f;
+            if (castEffect != null) Instantiate(castEffect, player.transform.position, Quaternion.identity);
 
             switch (spellType)
             {

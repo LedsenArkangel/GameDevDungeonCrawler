@@ -53,4 +53,5 @@ MonoBehaviour:
   ammoRegenPerSecond: 0.5
   spellUseEffectPrimary: {fileID: 0}
   spellUseEffectSecondary: {fileID: 0}
-  spellUseEffectSTetriary: {fileID: 0}
+  castEffect: {fileID: 135030593720171309, guid: 5fa8f43fa3f4133488f20b3c39f41937,
+    type: 3}
