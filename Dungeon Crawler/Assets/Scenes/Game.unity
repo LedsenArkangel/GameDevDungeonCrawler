@@ -430,7 +430,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &211346324
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1385,7 +1385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &747298339
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3176,7 +3176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 75, y: 10}
+  m_AnchoredPosition: {x: 84.9, y: 10}
   m_SizeDelta: {x: 150, y: 20}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1278434323
@@ -3842,7 +3842,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 27954dc436ae04e4286cf563c262bac2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f08170b5c1a30fe4c8161d39067e1666, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
@@ -4837,8 +4837,8 @@ MonoBehaviour:
   pathFindingMesh: {fileID: 245203860}
   gameOver: {fileID: 1133710164}
   level: 0
-  firstBossRoom: 7
-  finalLevel: 7
+  firstBossRoom: 3
+  finalLevel: 3
   roomLevelText: {fileID: 1250994692}
   endless: 0
 --- !u!4 &1993102837
