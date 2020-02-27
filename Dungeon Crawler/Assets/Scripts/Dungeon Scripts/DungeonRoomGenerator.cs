@@ -16,6 +16,8 @@ public class DungeonRoomGenerator : MonoBehaviour
     public Text roomLevelText;
     float roomOffSetPerLevel=15.25f;
     public bool endless = false;
+    public AudioSource audioSource;
+    public AudioClip BossMusic;
 
     public void GenerateNextRoom()
     {
@@ -28,11 +30,19 @@ public class DungeonRoomGenerator : MonoBehaviour
         else
         {
             if (level != firstBossRoom) room = Instantiate(BasicRoomTemplate, new Vector2(0, roomOffSetPerLevel * level), Quaternion.identity);
-            else room = Instantiate(BossRoomTemplate, new Vector2(0, roomOffSetPerLevel * level), Quaternion.identity);
+            else
+            {
+                room = Instantiate(BossRoomTemplate, new Vector2(0, roomOffSetPerLevel * level), Quaternion.identity);
+                audioSource.Stop();
+                audioSource.loop = true;
+                audioSource.clip = BossMusic;
+                audioSource.volume = 0.2f;
+                audioSource.Play();
+            }
 
 
 
-            if (room.GetComponent<RoomGenerator>() != null) room.GetComponent<RoomGenerator>().GenerateObjectsAndEnemies(level);
+                if (room.GetComponent<RoomGenerator>() != null) room.GetComponent<RoomGenerator>().GenerateObjectsAndEnemies(level);
 
             GridGraph gg = pathFindingMesh.GetComponent<AstarPath>().data.gridGraph;
             Debug.Log("0" + gg.width);
