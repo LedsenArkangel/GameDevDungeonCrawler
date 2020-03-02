@@ -16,4 +16,9 @@ public class MenuScript : MonoBehaviour
         Debug.Log("The game quits!");
         Application.Quit();
     }
+
+    public void OpenCredits()
+    {
+        SceneManager.LoadScene("Credits", LoadSceneMode.Single);
+    }
 }
