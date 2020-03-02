@@ -13,9 +13,7 @@ public class SpellBase : MonoBehaviour
     public float maxAmmo = 1;
     public float currentAmmo = 1;
     public float ammoRegenPerSecond = 1f;
-
-
-    //TODO?
+    
     [Header("Visual effects")]
     public GameObject spellUseEffectPrimary;
     public GameObject spellUseEffectSecondary;

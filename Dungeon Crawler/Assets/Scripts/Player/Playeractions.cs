@@ -17,6 +17,10 @@ public class Playeractions : MonoBehaviour
     public Text spellAmmoDisplay;
 
 
+    [Header("Spell use cd")]
+    public float spellCd = 0.1f;
+    public float spellTimer = 0f;
+
     [Header("Magic boots attributes")]
     public float boostForce = 800f;
     public float boostManaCost = 10f;
@@ -34,6 +38,7 @@ public class Playeractions : MonoBehaviour
     void Update()
     {
         UpdateAmmo();
+        spellTimer -= Time.deltaTime;
 
         //swap weapons
         if (Input.GetKeyDown("e"))
@@ -52,7 +57,13 @@ public class Playeractions : MonoBehaviour
         //left click uses equipped spell
         if (Input.GetMouseButtonDown(0))
         {
-            if (spells[equippedSpell].GetComponent<SpellBase>() != null) spells[equippedSpell].GetComponent<SpellBase>().useSpell(gameObject);
+            if (spells[equippedSpell].GetComponent<SpellBase>() != null) {
+                if (spellTimer <= 0f)
+                {
+                    spells[equippedSpell].GetComponent<SpellBase>().useSpell(gameObject);
+                    spellTimer = spellCd;
+                }
+            }
         }
 
         //right click uses magic boots
